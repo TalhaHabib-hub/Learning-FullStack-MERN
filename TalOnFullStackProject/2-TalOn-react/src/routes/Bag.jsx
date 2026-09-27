@@ -20,6 +20,9 @@ const Bag = () => {
       </div>
 
       <div className="bag-layout">
+        <aside className="bag-summary" aria-label="Order summary">
+          <ItemsSummary />
+        </aside>
         <section className="bag-items-list" aria-label="Items in your bag">
           {item.length === 0 ? (
             <div className="empty-bag">
@@ -33,9 +36,7 @@ const Bag = () => {
             item.map((each) => <BagItems key={each.id} item={each} />)
           )}
         </section>
-        <aside className="bag-summary" aria-label="Order summary">
-          <ItemsSummary />
-        </aside>
+        
       </div>
     </main>
   );

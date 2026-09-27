@@ -11,6 +11,7 @@
     Arial,
     sans-serif;
   box-sizing: border-box;
+  
 }
 html {
   scroll-behavior: smooth;
@@ -18,7 +19,7 @@ html {
 body {
   min-width: 320px;
   background:
-    radial-gradient(circle at 92% 8%, #fff0e5 0, transparent 28%), #f1f7f5;
+    radial-gradient(circle at 92% 8%, #0f393e 0, transparent 28%), #cccccc;
   color: #18333d;
 }
 #root {
@@ -499,9 +500,10 @@ footer > hr {
 
 .each-container {
   margin: 34px;
-  width: 252px;
+  width: 352px;
   height: 434px;
 }
+
 .items-container {
   width: 345px;
   margin: 40px 10%;
@@ -530,6 +532,11 @@ footer > hr {
     transform 220ms ease,
     box-shadow 220ms ease,
     border-color 220ms ease;
+}
+@media (max-width:560px){
+ .each-container {
+     width: 378px;
+ }
 }
 .each-container:hover {
   transform: translateY(-7px);
@@ -947,6 +954,10 @@ a.action_container:hover {
   grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.75fr);
   gap: 28px;
   align-items: start;
+}@media (max-width: 796px) {
+  .bag-layout {
+    display:block;
+  }
 }
 .bag-items-list {
   min-width: 0;
@@ -986,13 +997,25 @@ a.action_container:hover {
   font-size: 13px;
   line-height: 1.42857143;
 }
-
+@media (max-width:795px) {
+  .bag-summary{
+    position: relative;
+    z-index: -2;
+    top:6px;
+  }
+}
 .summary-card {
   padding: 24px;
   border: 1px solid #c8ddd8;
   border-radius: 18px;
   background: linear-gradient(155deg, #fffdf9, #fff3e8);
   box-shadow: 0 12px 28px rgba(24, 47, 59, 0.1);
+}
+@media (max-width: 796px) {
+  .summary-card {
+    z-index: 123;
+    position: relative;
+  }
 }
 
 .bag-details-container {
