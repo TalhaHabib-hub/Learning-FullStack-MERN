@@ -1,5 +1,5 @@
 const http = require("http");
-
+const fs = require('fs');
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method, req.headers);
   // res.setHeader('Content-Type','json')
@@ -20,10 +20,13 @@ const server = http.createServer((req, res) => {
     res.write("<label for='female'>female</label><br>");
     res.write('<button type="submit">Submit</button>');
     res.write("</form>");
-
     res.write("</body > ");
     res.write("</html>");
     return res.end();
+  } else if (req.url.toLowerCase() === '/submit-details' && req.method == 'POST') {
+    fs.writeFileSync('user.txt', 'Talha Habib');
+    res.statusCode = 302; //redirction
+    res.setHeader('Location', '/');
   }
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
@@ -33,3 +36,16 @@ const server = http.createServer((req, res) => {
   res.end();
 });
 server.listen(3000);
+const fs = require('fs')
+fs.writeFile('practice.js','js code');
+
+
+// const fs = require('fs');
+
+// fs.writeFile('practice.js', 'js code', (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('File created!');
+//   }
+// });
