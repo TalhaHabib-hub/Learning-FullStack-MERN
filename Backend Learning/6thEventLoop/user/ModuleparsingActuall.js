@@ -1,8 +1,6 @@
-const http = require("http");
-const fs = require("fs");
-const server = http.createServer((req, res) => {
+const fs = require('fs');
+const FunctionAllKhan = (req, res) => {
   console.log(req.url, req.method);
-  // res.setHeader('Content-Type','json')
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
@@ -23,42 +21,36 @@ const server = http.createServer((req, res) => {
     res.write("</body > ");
     res.write("</html>");
     return res.end();
-  } else if (
-    req.url.toLowerCase() === "/submit-details" &&
-    req.method == "POST"
-  ) {
+  } else if (req.url.toLowerCase() === '/submit-details' && req.method == 'POST') {
     const body = [];
-    req.on("data", (chunk) => {
+    req.on('data', chunk => {
       console.log(chunk);
       body.push(chunk);
     });
-    req.on("end", () => {
+    req.on('end', () => {
       const completeBody = Buffer.concat(body).toString();
-      console.log(Buffer);
-
       console.log(completeBody);
-    });
-    // fs.writeFileSync('parsingActuall.js', 'Talha Habib');
-    res.statusCode = 302; //redirction
-    res.setHeader("Location", "/");
-  }
+      const params = new URLSearchParams(completeBody);
+      const bodyObject = Object.fromEntries(params);
+      console.log(Object);
+      console.log(bodyObject);
+      // fs.writeFileSync('text.txt', JSON.stringify(bodyObject));// by using this sync function we are explicityl saying that ooo event loop to it own your own event though is stops your other tasks although will make you hundred of times don't give it too the libuv actualy we are here synchronising it so we can say it blocks event loop it need to be our priority to avoid using so to avoid it we have to use so we use when task is very argent so to avoid this we use this 
+      fs.writeFile('text.txt', JSON.stringify(bodyObject), error => {
+        console.log('Data written successfully');
+      })
+      res.statusCode = 302;// resoponse status code 
+      res.setHeader('Location', '/');
+      return res.end();
+    })
+    
+  }else{
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
   res.write("<head><title>Talha Habib</title></head>");
   res.write("<body><h1>Will be Allah's favourite person</h1></body>");
   res.write("</html>");
-  res.end();
-});
-server.listen(3000);
+  res.end();}
+};
 
-//Talha here we have got the complete body now we will do our complete parsing in the next file
 
-// const fs = require('fs');
-
-// fs.writeFile('practice.js', 'js code', (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('File created!');
-//   }
-// });
+module.exports = FunctionAllKhan;

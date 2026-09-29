@@ -43,7 +43,7 @@ const server = http.createServer((req, res) => {
       const bodyObject = Object.fromEntries(params);
       console.log(Object);
       console.log(bodyObject);
-      fs.writeFileSync('text.txt',JSON.stringify(bodyObject));
+      fs.writeFileSync('faramna.txt',JSON.stringify(bodyObject));// we should not use the sync here becsuse it stops the event loop completely
     })
     res.statusCode = 302; //redirction
     res.setHeader('Location', '/');

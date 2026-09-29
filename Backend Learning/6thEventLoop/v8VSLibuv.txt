@@ -1,0 +1,21 @@
+V8 vw Libuv
+V8 
+1. Open Source JavaScript engine by Google
+2. Used in Chrome and Node.js 
+3. compiles JavaScript to native machine code
+4. Ensures high-performance JavaScript
+
+Libuv
+1. Multi-platform support  library for Node.js.
+2. Handles asynchronous I/O opearations
+3. Provides event-driven architecture
+4. Manages file system, networking, and timers non-blocking across platforms
+
+
+Event Loop:-
+timers: this phase executes callbacks scheduled by setTimeout() and setInterval(). will get the highest priority
+pending callbacks:- executes I/O callbacks deferred to the next loop iteration
+idle, prepare: only used internally.
+poll: retrieve new I/O events: executes I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when approprate.
+check: setImmediate() callbacks are invoked here.
+close callbacks; some close callbacks, e.g. socket.on('close',...)
