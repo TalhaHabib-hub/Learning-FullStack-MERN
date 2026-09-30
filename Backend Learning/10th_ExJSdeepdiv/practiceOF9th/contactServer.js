@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded());
 app.post("/contact-us", (req, res, next) => {
   console.log(req.body);
   console.log("talha in 3rd middle ware");
-  res.send("<p>Thanks we got your details</p>");
+  res.send(`<p>Thanks ${req.body.name} we got your details</p>`);
 
 });
 
