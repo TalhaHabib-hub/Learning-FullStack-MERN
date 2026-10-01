@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airbnb | Become a host</title>
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/home.css" />
+  </head>
+  <body class="page page-host">
+    <header class="site-header">
+      <a class="brand" href="/">Airbnb</a>
+      <a class="header-link" href="/">Back to home</a>
+    </header>
+    <main class="page-content">
+      <section class="content-panel form-panel">
+        <p class="eyebrow">HOST WITH US</p>
+       <h1 class="text-5xl font-bold text-red-600">Share your space.</h1>
+          <div class="bg-red-500 text-white p-4 rounded-lg">Tailwind test</div>
+        <p class="intro-copy">Start with a name guests will remember.</p>
+        <form method="POST" action="/host/add_home">
+          <label for="addedHome">Home name</label>
+          <div class="form-row">
+            <input
+              id="addedHome"
+              type="text"
+              name="addedHome"
+              placeholder="e.g. The garden house"
+              required
+            />
+            <button class="button" type="submit">
+              Continue <span aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

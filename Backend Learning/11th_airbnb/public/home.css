@@ -1,0 +1,256 @@
+:root {
+  color-scheme: light;
+  --ink: #1d2c27;
+  --muted: #65736d;
+  --paper: #f2f6f1;
+  --surface: #ffffff;
+  --green: #28624f;
+  --green-dark: #1d4b3d;
+  --coral: #d66d55;
+  --line: #dce5de;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      ellipse at 85% 14%,
+      rgba(214, 109, 85, 0.1),
+      transparent 30rem
+    ),
+    radial-gradient(
+      ellipse at 8% 88%,
+      rgba(40, 98, 79, 0.1),
+      transparent 34rem
+    ),
+    var(--paper);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.site-header {
+  width: min(1120px, calc(100% - 48px));
+  min-height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  color: var(--coral);
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.header-link {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.header-link:hover {
+  color: var(--green);
+  text-decoration-color: currentColor;
+}
+
+.page-content {
+  width: min(1120px, calc(100% - 48px));
+  min-height: calc(100vh - 83px);
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  padding: 64px 0 96px;
+}
+
+.content-panel {
+  width: min(100%, 720px);
+  padding: clamp(28px, 6vw, 68px);
+  border: 1px solid rgba(220, 229, 222, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 70px rgba(29, 44, 39, 0.08);
+  animation: arrive 420ms ease-out both;
+}
+
+.home-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-panel::after {
+  position: absolute;
+  right: -70px;
+  bottom: -145px;
+  width: 300px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(40, 98, 79, 0.16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(40, 98, 79, 0.035),
+    0 0 0 58px rgba(214, 109, 85, 0.035);
+  content: "";
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  max-width: 620px;
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.intro-copy {
+  max-width: 470px;
+  margin: 22px 0 32px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.button {
+  min-height: 50px;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  background: var(--green);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.button:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.button:focus-visible,
+.header-link:focus-visible,
+.brand:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(214, 109, 85, 0.55);
+  outline-offset: 3px;
+}
+
+.form-panel {
+  width: min(100%, 760px);
+}
+
+form {
+  margin-top: 38px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+input {
+  min-width: 0;
+  min-height: 50px;
+  flex: 1;
+  padding: 0 15px;
+  border: 1px solid #bdcbc1;
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: #8a9790;
+}
+
+.result-panel {
+  width: min(100%, 680px);
+}
+
+.page-success .eyebrow {
+  color: var(--green);
+}
+
+.page-error .eyebrow {
+  color: var(--coral);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header,
+  .page-content {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .site-header {
+    min-height: 70px;
+  }
+
+  .page-content {
+    min-height: calc(100vh - 71px);
+    padding: 36px 0 56px;
+  }
+
+  .content-panel {
+    padding: 30px 24px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .button {
+    width: 100%;
+  }
+}
