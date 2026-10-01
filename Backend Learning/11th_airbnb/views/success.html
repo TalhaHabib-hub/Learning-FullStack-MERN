@@ -4,20 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airbnb | Home registered</title>
-    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/output.css" />
   </head>
-  <body class="page page-result page-success">
-    <header class="site-header">
-      <a class="brand" href="/">Airbnb</a>
+  <body class="min-h-screen bg-emerald-50 text-slate-800">
+    <header class="mx-auto max-w-4xl px-6 py-5">
+      <a href="/" class="text-2xl font-bold tracking-tight text-rose-500"
+        >Airbnb</a
+      >
     </header>
-    <main class="page-content">
-      <section class="content-panel result-panel">
-        <p class="eyebrow">ALL SET</p>
-        <h1>Your home is registered.</h1>
-        <p class="intro-copy">Thanks for opening your space to guests.</p>
-        <a class="button" href="/"
-          >Go to home <span aria-hidden="true">&#8594;</span></a
+
+    <main class="mx-auto flex max-w-4xl items-center justify-center px-6 py-16">
+      <section
+        class="w-full rounded-3xl bg-white p-8 text-center shadow-xl shadow-emerald-100 ring-1 ring-emerald-100 md:p-12"
+      >
+        <p
+          class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-500"
         >
+          All set
+        </p>
+        <h1
+          class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl"
+        >
+          Your home is registered.
+        </h1>
+        <p class="mt-4 text-lg text-slate-600">
+          Thanks for opening your space to guests.
+        </p>
+        <a
+          href="/"
+          class="mt-8 inline-flex items-center rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-600"
+        >
+          Go to home <span aria-hidden="true" class="ml-2">&#8594;</span>
+        </a>
       </section>
     </main>
   </body>

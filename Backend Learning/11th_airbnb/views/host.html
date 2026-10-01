@@ -4,32 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airbnb | Become a host</title>
-    <link rel="stylesheet" href="/output.css">
-    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/output.css" />
   </head>
-  <body class="page page-host">
-    <header class="site-header">
-      <a class="brand" href="/">Airbnb</a>
-      <a class="header-link" href="/">Back to home</a>
+  <body class="min-h-screen bg-slate-100 text-slate-800">
+    <header
+      class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5"
+    >
+      <a href="/" class="text-2xl font-bold tracking-tight text-rose-500"
+        >Airbnb</a
+      >
+      <a
+        href="/"
+        class="text-sm font-medium text-slate-600 transition hover:text-rose-500"
+        >Back to home</a
+      >
     </header>
-    <main class="page-content">
-      <section class="content-panel form-panel">
-        <p class="eyebrow">HOST WITH US</p>
-       <h1 class="text-5xl font-bold text-red-600">Share your space.</h1>
-          <div class="bg-red-500 text-white p-4 rounded-lg">Tailwind test</div>
-        <p class="intro-copy">Start with a name guests will remember.</p>
-        <form method="POST" action="/host/add_home">
-          <label for="addedHome">Home name</label>
-          <div class="form-row">
+
+    <main class="mx-auto max-w-5xl px-6 py-10 md:py-16">
+      <section
+        class="rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/70 ring-1 ring-slate-200 md:p-12"
+      >
+        <p
+          class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-rose-500"
+        >
+          Host with us
+        </p>
+        <h1
+          class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl"
+        >
+          Share your space.
+        </h1>
+        <p class="mt-4 max-w-lg text-lg text-slate-600">
+          Start with a name guests will remember.
+        </p>
+
+        <form method="POST" action="/host/add_home" class="mt-8 max-w-xl">
+          <label
+            for="addedHome"
+            class="mb-2 block text-sm font-medium text-slate-700"
+            >Home name</label
+          >
+          <div class="flex flex-col gap-4 sm:flex-row">
             <input
               id="addedHome"
               type="text"
               name="addedHome"
               placeholder="e.g. The garden house"
               required
+              class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
-            <button class="button" type="submit">
-              Continue <span aria-hidden="true">&#8594;</span>
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
+            >
+              Continue <span aria-hidden="true" class="ml-2">&#8594;</span>
             </button>
           </div>
         </form>

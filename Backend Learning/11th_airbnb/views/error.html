@@ -4,22 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airbnb | Page not found</title>
-    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/output.css" />
   </head>
-  <body class="page page-result page-error">
-    <header class="site-header">
-      <a class="brand" href="/">Airbnb</a>
+  <body class="min-h-screen bg-rose-50 text-slate-800">
+    <header class="mx-auto max-w-4xl px-6 py-5">
+      <a href="/" class="text-2xl font-bold tracking-tight text-rose-500"
+        >Airbnb</a
+      >
     </header>
-    <main class="page-content">
-      <section class="content-panel result-panel">
-        <p class="eyebrow">404 / NOT FOUND</p>
-        <h1>We couldn't find that page.</h1>
-        <p class="intro-copy">
+
+    <main class="mx-auto flex max-w-4xl items-center justify-center px-6 py-16">
+      <section
+        class="w-full rounded-3xl bg-white p-8 text-center shadow-xl shadow-rose-100 ring-1 ring-rose-100 md:p-12"
+      >
+        <p
+          class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-rose-500"
+        >
+          404 / Not found
+        </p>
+        <h1
+          class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl"
+        >
+          We couldn't find that page.
+        </h1>
+        <p class="mt-4 text-lg text-slate-600">
           The address may have changed or the page may no longer be here.
         </p>
-        <a class="button" href="/"
-          >Return home <span aria-hidden="true">&#8594;</span></a
+        <a
+          href="/"
+          class="mt-8 inline-flex items-center rounded-full bg-rose-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
         >
+          Return home <span aria-hidden="true" class="ml-2">&#8594;</span>
+        </a>
       </section>
     </main>
   </body>
