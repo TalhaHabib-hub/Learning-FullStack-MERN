@@ -1,0 +1,80 @@
+<%- include('partials/head.ejs') %>
+  <body class="min-h-screen bg-gradient-to-br from-rose-50 via-white to-slate-100 text-slate-800">
+    <%- include('partials/navBar.ejs') %>
+
+    <main class="mx-auto max-w-6xl space-y-8 px-6 py-10 md:py-14">
+      <section class="rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/60 ring-1 ring-slate-200 md:p-12">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-rose-500">
+          A place to begin
+        </p>
+        <h1 class="max-w-xl text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
+          Make room for a better stay.
+        </h1>
+        <p class="mt-5 max-w-lg text-lg text-slate-600">
+          Your next chapter starts with a place that feels like yours.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="/host/add_home"
+            class="inline-flex items-center rounded-full bg-rose-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
+          >
+            Add your home <span aria-hidden="true" class="ml-2">+</span>
+          </a>
+          <a
+            href="#added-homes"
+            class="inline-flex items-center rounded-full border border-slate-200 px-6 py-3 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+          >
+            Explore homes
+          </a>
+        </div>
+      </section>
+
+      <section id="added-homes" class="rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/60 ring-1 ring-slate-200 md:p-10">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-rose-500">
+              Your collection
+            </p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Added Homes
+            </h2>
+          </div>
+          <% if (addedHomes.length > 0) { %>
+            <p class="text-sm font-medium text-slate-500">
+              <%= addedHomes.length %> <%= addedHomes.length === 1 ? 'home' : 'homes' %>
+            </p>
+          <% } %>
+        </div>
+
+        <% if (addedHomes.length > 0) { %>
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <% addedHomes.forEach((home) => { %>
+              <li class="group rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-rose-50/70 p-5 shadow-sm transition hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/70">
+                <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-rose-100 text-xl text-rose-600" aria-hidden="true">
+                  &#8962;
+                </div>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Your listing
+                </p>
+                <h3 class="mt-1 break-words text-lg font-semibold text-slate-900">
+                  <%= home.addedHome %>
+                </h3>
+              </li>
+            <% }); %>
+          </ul>
+        <% } else { %>
+          <div class="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center">
+            <p class="text-lg font-semibold text-slate-800">Your collection starts here</p>
+            <p class="mt-2 text-sm text-slate-600">Add a home and it will appear here.</p>
+            <a
+              href="/host/add_home"
+              class="mt-5 inline-flex items-center rounded-full bg-rose-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-600"
+            >
+              Add your first home
+            </a>
+          </div>
+        <% } %>
+      </section>
+    </main>
+  </body>
+</html>

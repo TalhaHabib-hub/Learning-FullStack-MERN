@@ -6,7 +6,7 @@ const rootDir = require('../utils/utilpaths')
 
 
 hostRouter.get("/add_home", (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../', 'views', 'host.html'));
+  res.sendFile(path.join(rootDir, 'views', 'host.html'));
 });
 
 hostRouter.use(express.urlencoded());
