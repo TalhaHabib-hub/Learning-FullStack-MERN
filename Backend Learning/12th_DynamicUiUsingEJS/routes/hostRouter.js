@@ -34,5 +34,15 @@ hostRouter.post("/add_home", upload.single("image"), (req, res, next) => {
   });
 });
 
+hostRouter.post("/delete_home/:homeIndex", (req, res) => {
+  const homeIndex = Number(req.params.homeIndex);
+  if (!Number.isInteger(homeIndex) || homeIndex < 0 || homeIndex >= addedHomes.length) {
+    return res.sendStatus(404);
+  }
+
+  addedHomes.splice(homeIndex, 1);
+  res.redirect("/");
+});
+
 exports.hostRouter = hostRouter;
 exports.addedHomes = addedHomes;

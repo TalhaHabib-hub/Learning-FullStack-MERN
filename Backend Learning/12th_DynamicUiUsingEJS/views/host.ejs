@@ -20,13 +20,9 @@
           Start with a name guests will remember.
         </p>
 
-        <form method="POST" action="/host/add_home" class="mt-8 max-w-xl" enctype="multipart/form-data">
-          <label
-            for="addedHome"
-            class="mb-2 block text-sm font-medium text-slate-700"
-            >Home name</label
-          >
-          <div class="flex flex-col gap-4 sm:flex-row">
+        <form method="POST" action="/host/add_home" class="mt-8 flex max-w-xl flex-col gap-5" enctype="multipart/form-data">
+          <div>
+            <label for="addedHome" class="mb-2 block text-sm font-medium text-slate-700">Home name</label>
             <input
               id="addedHome"
               type="text"
@@ -35,6 +31,9 @@
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
+          </div>
+          <div>
+            <label for="pricePerNight" class="mb-2 block text-sm font-medium text-slate-700">Price per night</label>
             <input
               id="pricePerNight"
               type="text"
@@ -43,6 +42,9 @@
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
+          </div>
+          <div>
+            <label for="location" class="mb-2 block text-sm font-medium text-slate-700">Location</label>
             <input
               id="location"
               type="text"
@@ -51,6 +53,9 @@
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
+          </div>
+          <div>
+            <label for="rating" class="mb-2 block text-sm font-medium text-slate-700">Guest rating</label>
             <input
               id="rating"
               type="text"
@@ -59,6 +64,9 @@
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
+          </div>
+          <div>
+            <label for="image" class="mb-2 block text-sm font-medium text-slate-700">Home photo</label>
             <input
               id="image"
               type="file"
@@ -67,13 +75,13 @@
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
-            <button
-              type="submit"
-              class="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
-            >
-              Continue <span aria-hidden="true" class="ml-2">&#8594;</span>
-            </button>
           </div>
+          <button
+            type="submit"
+            class="inline-flex w-full items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
+          >
+            Continue <span aria-hidden="true" class="ml-2">&#8594;</span>
+          </button>
         </form>
       </section>
     </main>

@@ -48,7 +48,7 @@
 
         <% if (addedHomes.length > 0) { %>
           <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <% addedHomes.forEach((home) => { %>
+            <% addedHomes.forEach((home, homeIndex) => { %>
               <li class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-rose-200 hover:shadow-xl hover:shadow-rose-100/70">
                 <div class="relative aspect-[4/3] overflow-hidden bg-rose-100">
                   <% if (home.image) { %>
@@ -86,6 +86,14 @@
                       <span aria-hidden="true">&#9733;</span> <%= home.rating %>/5
                     </p>
                   </div>
+                  <form action="/host/delete_home/<%= homeIndex %>" method="post">
+                    <button
+                      type="submit"
+                      class="w-full rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-700 transition hover:border-rose-300 hover:bg-rose-50 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2"
+                    >
+                      Remove listing
+                    </button>
+                  </form>
                 </div>
               </li>
             <% }); %>
