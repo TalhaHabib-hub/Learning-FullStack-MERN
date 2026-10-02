@@ -20,7 +20,7 @@
           Start with a name guests will remember.
         </p>
 
-        <form method="POST" action="/host/add_home" class="mt-8 max-w-xl">
+        <form method="POST" action="/host/add_home" class="mt-8 max-w-xl" enctype="multipart/form-data">
           <label
             for="addedHome"
             class="mb-2 block text-sm font-medium text-slate-700"
@@ -32,6 +32,38 @@
               type="text"
               name="addedHome"
               placeholder="e.g. The garden house"
+              required
+              class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
+            />
+            <input
+              id="pricePerNight"
+              type="text"
+              name="pricePerNight"
+              placeholder="e.g. $100"
+              required
+              class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
+            />
+            <input
+              id="location"
+              type="text"
+              name="location"
+              placeholder="e.g. New York, NY"
+              required
+              class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
+            />
+            <input
+              id="rating"
+              type="text"
+              name="rating"
+              placeholder="e.g. 4.5"
+              required
+              class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
+            />
+            <input
+              id="image"
+              type="file"
+              name="image"
+              accept="image/*"
               required
               class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100"
             />
