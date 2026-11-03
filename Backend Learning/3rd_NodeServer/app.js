@@ -18,5 +18,11 @@ const server = http.createServer((req, res) => {
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`server running on address http://localhost${PORT}`);
-}
-)
+});
+
+// Talha first import http for client serve communication actually can say for servermaking
+
+//   then just http.createServer(())
+//   it gets a function so give it req, res
+
+//   to listen for continuously user serve.listen which that above things returns
