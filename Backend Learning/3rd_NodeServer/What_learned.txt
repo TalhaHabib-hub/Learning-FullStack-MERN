@@ -1,0 +1,60 @@
+How DNS Works?
+1. Domain Name Entry: User types a domain (e.g., www.example.com) into the browser.
+2. DNS Query: The browser send a DNS query to resolve the domain into an IP address.
+3. DNS Server: Provides the correct IP address for the domain.
+4. Browser Connects: The browser uses the IP to connect to the web server and loads the website.
+
+How DNS actually works?
+1.Root DNS: Acts as the starting point for DNS resolution. it directs queries to the correct TLD server(e.g., .com, .org).
+2.TLD (Top-level Domain) DNS: Handles queries for specific top-level domains(e.g., .com, .net) and directs them to the authoritative DNS server (e.g., Verisign for .com, PIR for .org)
+3.Authroitative DNS: Contains the actual IP address of the domain and answers DNS queries with this information. (e.g., Cloudflare, Google DNS).
+
+How web Works?
+1.Client Request Initiation: The client (browser) initiates a network call by entering a URL.
+2.DNS Resolution: The browser contacts a DNS server to get the IP address of the domain.
+3.TCP Connection: The browser establishes a TCP connection with the server's IP address.
+4.HTTP request: The server sends an HTTP request to the server.
+5.Server processing:The server process an HTTP request and prepares a response. 
+6.HTTP response: The server sends an HTTP response back to the client.
+7.Network Transmission: The response travels back to the client over the network.
+8.Client Receives Response: The browser receives and interprets the response.
+9.Rendering: The browser renders the content of the response and displays it to the user.
+
+
+What are protocols:
+Http(HyperText Transfer Protocol):
+-Facilitates communications between a web browser and a server to transfer web pages.
+-Sends data in plain text (no encryption).
+-Used for basic website browsing without security.
+
+Https(HyperText Transfer Protocol Secure):
+-Secure version of HTTP, encrypts data for secure communication.
+-Uses SSL/TLS to encrypt data.
+-Used in online banking, e-commerce.
+
+TCP (Transmission Control Protocol):
+-Ensures reliable, ordered, and error checked data delivery over the internet 
+-Establishes a connection before data is transfer
+
+Node Core Modules
+1.Built-in: Core modules are included with Node.js installation.
+2.NO Installation Needed: Directly available for use without npm installation.
+3.Performance: Higly optimized for performance.
+
+1.fs (File System): Handles file operations like reading and writing files.
+2.http: Create Http servers and make HTTP requests.
+3.https: Launch a SSL Server.
+4.path:Provides utilities for handling and transforming  file.
+5.paths.os: Provides operating system-related utility methods and properties.
+6.events: Handles events and event-driven programming.
+7.crypto: Provides cryptographic functionalities like hashing  and encryption.
+8.url: parses and formats URL strings.
+
+
+Require Keyword
+1.Purpose: Imports modules in Node.js.
+2.Caching: Modules are cached after the first require call.
+3..js is added automatically and is not needed to at the end of module name.
+4.path resolution: Node.js searches for modules in core, node_modules, and file path.
+
+
