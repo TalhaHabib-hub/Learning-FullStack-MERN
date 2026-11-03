@@ -59,4 +59,28 @@ Now lets have a look at Javascript on Server
 10.Loaging and Monitoring: Keeps records of System activity to diagnose issues and monitor health security.
 
 
-Talha here is an important things
+Talha here is an important things 
+client code vs server code
+1. User/Client can't access server code directlty.
+2. Client must raise requests for particular APIs to access certain features or data.
+3. environment access: Server-side JS access server features like file systems and databases.
+4.security: Server side code can handle sensitve operations securely, while client-side is exposed and must manage security risks.
+5.performance: Heavy computations are better performed on the server to avoid slowing down the client.
+6.Resource Utiliazation: Servers generally offer more powerful processing Capabilities than client devices.
+7.Data Handling: Server-side can directly manage large data sets and database interaction, unlike client-side Javascript
+8.Asynchronous Operations: Server-side Javascriptis optimized for non-blocking I/O to efficiently manage multiple requests.
+9.Session Management: Servers handle sessions and user states more comprehensively.
+10.Scalability: Server-side code is designed to scale and handle requests from multiple  clients simultaneously.
+
+Other uses of NodeJs
+1. Local Utility Scripts: Automates tasks and process files locally, like using shell scripts but with Javascript
+2. Internet of thing (IoT): Develops server-side applications for IoT devices, managing communications and data processing.
+3. Scripting for Automation: Automates repetitive tasks in software development process, such as testing and deployment.
+
+Real-Time Applications: Efficiently manages real-time data applications, such as chat app and live updates, webSockets.
+
+
+8.Server architecture with NodeJs
+1.Create server and listen to incoming requests
+2.Business logic: validation, connect to db, actual processing of data
+3.Return response HTML, JSON, CSS, JS
