@@ -1,1 +1,62 @@
 Mostly was therotical
+Node.js is an open source, cross-platform runtime environment for executing Javascript code outside of the browser
+Node.js is Javascript in a different environment means running JS on the server or any computer
+Built on chrome's V8 Engine: it run on the V8 engine , which compiles Javascript directly to native machine code, enhancing performance.
+V8 is written in C++ for speed.
+V8 + Backend Features = Node.js
+
+Design: Features an event-driven, non-blocking I/O model for efficiency.
+Full-Stack Javascript: Allows using Javascript on both server and client sides.
+Scalability: Ideal for scalable netword applications due to its architecture.
+Versatility : Suitable for web, real-time chat, and REST API servers.
+
+Node.js Features
+1. Non blocking I/O: Designed to perform non-blocking operations by default, making it Suitable for I/O-heavy operations.
+2. Networking Support: Support TCP/UDP sockets, which are crucial for building lower-level network applications that browsers can't handle.
+
+File System Access : Provides APIs to read and write files directly, which is not possible in browser environment for security reasons.
+
+Server-side Capabilities: Node.js enables Javascript to run on the sever, handling HTTP requests, file operations, and other sever-side functionalities
+
+Modules: Organize code into reusable modules using require()
+
+The removed features for Node.js environment
+
+1. window Object: The global window object, which is part of web browsers, is absent in Node.js.
+
+2. DOM Manipulation: Node.js does not have a built-in Document Object Model (DOM), as it is not intended to interact with webpage's content.
+
+3.BOM (browser object model): No direct interaction with things like navigator or screen which are part of BOM in browser.
+
+Web-Specific APIs: APIs like localStorage, sessionStorage, and browser-based fetch are not available in Node.js
+
+Talha this is what js does on client side:
+Brower does is:
+Displays webpage: Turns HTML code into what we see on screen.
+User Clicks: Helps us interact with the web page.
+Updates Content: Allows changes to the page using JS.
+Loads Files: Gets HTML, image, etc.,form the server.
+
+Now lets have a look at Javascript on Server
+1.Database Managment: Stores, retrieves, and manages data efficintly through operations like CRUD (create, read, update, delete).
+
+2. Authentication: Verifies user identities to control access to the System, ensuring that users are who they claim to be.
+
+3.Authorization:Determines what Authenticated users are allowed to do by managing permissions and access controls
+
+4.Input validation: Checks incoming data for correctness, completeness, security to prevent malicious data entry and errors.
+
+5.Session Managment: Tracks user activity across various requests to maintain state and manage user-specific settings.
+
+6.API Managment: Provides and handles interfaces for applications to interact, ensuring smooth data exchange and integration.
+
+7.Error Handling: Manages and responds to errors effectively to maintain System statbility and provide useful error messages.
+
+8.security measures: Implement protocols to protect data from unauthorized access and attacks, such as SQL injection and corss-site scripting (XSS).
+
+9.Data Encryption : Secures sensitve information by Encrypting data stored in databases and during tansmission.
+
+10.Loaging and Monitoring: Keeps records of System activity to diagnose issues and monitor health security.
+
+
+Talha here is an important things
