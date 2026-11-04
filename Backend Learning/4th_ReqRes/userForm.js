@@ -24,9 +24,18 @@ const server = http.createServer((req, res) => {
     res.write("</html>");
     return res.end();
   } else if (req.url.toLowerCase() === '/submit-details' && req.method == 'POST') {
-    fs.writeFileSync('user.txt', 'Talha Habib');
-    res.statusCode = 302; //redirction
+    fs.writeFileSync('user.txt', 'User details submitted successfully');
+    // res.setHeader("Content-Type", "text/html");
+    // res.write("<html>");
+    // res.write("<head><title>Talha Habib</title></head>");
+    // res.write("<body><h1>User details submitted successfully</h1>");
+    // res.write("</body > ");
+    // res.write("</html>");
+    res.statusCode = 302; // redirection
     res.setHeader('Location', '/');
+    return res.end();
+    // res.statusCode = 302; //redirction
+    // res.setHeader('Location', '/');
   }
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
@@ -35,9 +44,10 @@ const server = http.createServer((req, res) => {
   res.write("</html>");
   res.end();
 });
-server.listen(3000);
-const fs = require('fs')
-fs.writeFile('practice.js','js code');
+server.listen(3001, () => {
+  console.log('Talha the server is listening at port:3001')
+});
+// fs.writeFile('practice.js','js code');
 
 
 // const fs = require('fs');

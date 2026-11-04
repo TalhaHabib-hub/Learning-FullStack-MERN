@@ -1,0 +1,5 @@
+The life cycle of Node and Event Loop
+ Node works as single threaded environment first Talha request gets gathered in the queue event loop which is only one will take each one by one that is why it is called single threaded but what actually happens its doesn't does all the work on its own but it gives each task to other threads in the thread pool it will give specific thread what they can do and also gives them call backs so on completion of the tasks through that callbacks the responses will be given back to the event loop again
+ for example talha sir has given example of the threads in loop like one can interact with database , the other with the file system and may be another with the networks  or can be many more that is even being single threaded it does alots of works on it own.
+ so Talha what sir is saying that for exiting the loop which actually presses the ctrl + c to exit loop but how can we actually exit the event loop for that talha we just write this code to exit the loop as:
+ process.exit();
