@@ -1,0 +1,18 @@
+npm packages:
+1. npm: Node.js package manager for code sharing.
+2. package: Reusable code or library.
+3. package.json: Defines package metadata and dependencies.
+4. Versioning: Manages different package versions.
+5. Local/Gloabal: Install packages loacally or gloabally.
+6. Registry: Public storage for open-source packages.
+7. Express, React, Loadash
+
+Installing Packages:
+npm install <package-name>
+
+1. -save: Adds the package to the project's dependencies in package.json.
+
+2. -save-dev: Adds the package to the project's devDenpendencies (used only in development) in package.json.
+3.  -g: Install the package gloabally, making it available system-wide, not just in a specific project.
+4.  -save-exact: Installs the exact version specified without updating for newer versions.
+5.  -force: Forces npm to fetch and install packages even if they are already installed.
