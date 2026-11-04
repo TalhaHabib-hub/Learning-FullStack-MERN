@@ -1,1 +1,1 @@
-{"name":"Farman","gender":"male"}
+{"name":"Farman Ullah","gender":"male"}

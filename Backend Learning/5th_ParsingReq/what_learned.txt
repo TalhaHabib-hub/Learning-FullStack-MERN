@@ -1,0 +1,22 @@
+
+data flows in stream form within browser node.js to server and vice versa also
+socket is the gate of commuication
+talking to server is a dublex stream
+chunck is the smallest unit of stream
+and each avialable chunck is placed for processing one by one
+as the sequence of the chuncks is important but they may get in improper order  so to make them in proper order and make them proper and meaninfull we use buffer (many chuncks in proper meaningfull order).
+now how to get these chuncks we wrote these program.
+
+Talha this is all what happened 
+ first got the chunks one by one and place them into an array
+ req.on(data, (chunck)=>{
+  // here pushed each chunck to the array
+ })
+
+ then we data ended( we got the complete data from the user)
+ we putted that array in which Talha we had pushed those chunks we passed that to the Buffer for buffering and also we stringfied that full boady of data 
+
+ then Talha  this fullbody is passed into URLSearchParams to get all parameters in this way name => Talha
+ then after parsing the previous output  and converted to 
+
+ then the final object is written in the txt file
