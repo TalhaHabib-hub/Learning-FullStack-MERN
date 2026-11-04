@@ -19,3 +19,7 @@ idle, prepare: only used internally.
 poll: retrieve new I/O events: executes I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and setImmediate()); node will block here when approprate.
 check: setImmediate() callbacks are invoked here.
 close callbacks; some close callbacks, e.g. socket.on('close',...)
+
+
+Talha here is the process of Event driven 
+a user clicks --> Event listener ----> Event queue ---> Event loop ---> Event handler

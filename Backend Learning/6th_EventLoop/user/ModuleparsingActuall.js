@@ -34,7 +34,7 @@ const FunctionAllKhan = (req, res) => {
       const bodyObject = Object.fromEntries(params);
       console.log(Object);
       console.log(bodyObject);
-      // fs.writeFileSync('text.txt', JSON.stringify(bodyObject));// by using this sync function we are explicityl saying that ooo event loop to it own your own event though is stops your other tasks although will make you hundred of times don't give it too the libuv actualy we are here synchronising it so we can say it blocks event loop it need to be our priority to avoid using so to avoid it we have to use so we use when task is very argent so to avoid this we use this 
+      // fs.writeFileSync('text.txt', JSON.stringify(bodyObject));// by using this sync function we are explicityl saying that ooo event loop do it own your own event though is stops your other tasks although will make you hundred of times don't give it too the libuv actualy we are here synchronising it so we can say it blocks event loop it need to be our priority to avoid using so to avoid it we have to use so we use when task is very argent so to avoid this we use this 
       fs.writeFile('text.txt', JSON.stringify(bodyObject), error => {
         console.log('Data written successfully');
       })
