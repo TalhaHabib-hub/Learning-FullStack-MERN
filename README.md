@@ -2,7 +2,7 @@
 
 A personal learning repository documenting my journey through frontend development and the MERN stack (MongoDB, Express, React, Node.js). This repo is a collection of small projects, exercises, and experiments built while learning HTML, CSS, JavaScript, React, Redux, and full-stack development concepts.
 
-> 📚 For improvement of what I've learned — this repo grows as I practice new concepts and revisit old ones.
+>  For improvement of what I've learned — this repo grows as I practice new concepts and revisit old ones.
 
 ## About
 
