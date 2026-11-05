@@ -3,6 +3,7 @@
 
 //External Module here we are using express module to create a server and handle the request and response
 const express = require('express');
+const bodyParser = require('bodyParser')
 
 //express is a function that returns an app which is a request handler
 //it can also be named as createpplication
