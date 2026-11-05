@@ -1,10 +1,11 @@
 //Core module
 // const http = require('http'); now Talha we don't need express will do it for us also talha for it you have to remove the line number 23 and replce server with app in line number 26
 
-//External Module
+//External Module here we are using express module to create a server and handle the request and response
 const express = require('express');
 
-
+//express is a function that returns an app which is a request handler
+//it can also be named as createpplication
 const app = express(); // it is a function that returns an app
 // Talha the app here is a request handler it also take reqs and response but also gets next function
 // const server = http.createServer(requestHandler)
@@ -12,7 +13,7 @@ const app = express(); // it is a function that returns an app
 
 // Talha
 // 1. order matters
-// 2.talha you can't call next after send();
+// 2. talha you can't call next after send();
 // 3. "/" matches everything
 // 4. Calling res.send implicitly calls res.end();
 app.get("/",(req, res, next)=> {
@@ -20,6 +21,11 @@ app.get("/",(req, res, next)=> {
   // res.send("<h3>Hey Talha you are at /</h3>")  // Talha you can not call next() after send()
   next();
 })
+
+// earlier 
+// const server = http.createServer((req, res) => {
+//   console.log(req);
+// })
 app.get("/submit-details",(req, res, next)=> {
   console.log("Came in 3rd  middleware ", req.url, req.method);
   res.send('<h1>May Allah be with you</h1>')
