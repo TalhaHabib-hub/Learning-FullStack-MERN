@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 // Talha the one who made the body parser they know that we are going to use this in express so we can get the parserd data in a middleware so go to the line just before post middleware which is about to get the parsed data
 const app = express();
 
@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   console.log('2nd dummy middle ware', req.method)
   next();
 })
-
+app.use(express.urlencoded());
 app.get("/", (req, res, next) => {
   res.send(`<h1>Home</h1> <a href="/contact-us">Go to Contacts</a>`)
 });
@@ -29,7 +29,9 @@ app.get("/contact-us", (req, res, next) => {
   `);
 });
 // Talha add it just before the middlware that need the data to be parsed for itself also Talha this will parsed the body and add that to the request
-app.use(bodyParser.urlencoded()) 
+// app.use(bodyParser.urlencoded()) 
+//Talha instead of it just can write even without importing the bodyparser
+// app.use(express.urlencoded)
 app.post("/contact-us", (req, res, next) => {
   console.log(req.body);
   console.log("talha in 3rd middle ware");
