@@ -1,0 +1,8 @@
+Introduction to Tailwind CSS
+1. Responsive : Mobile-first design for all device sizes.
+2. Utility-First: Provides low-level utility classes for building custom designs.
+3. Highly Customizable: Easily extendable through a config file.
+4. Responsive Design: Built-in responsive utilities (e.g sm:, md:).
+5. No predefined components: Focuses on building custom components.
+6. Pure CSS: Removes unused styles in production for smaller files.
+7. Fast Development: Style elements directly in markup for speed.
