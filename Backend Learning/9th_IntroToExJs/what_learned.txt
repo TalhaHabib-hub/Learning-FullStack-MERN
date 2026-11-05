@@ -15,3 +15,8 @@ Installing Express.js
 
 To install express temporarily and not add it to the dependencies list:
  npm install express --no-save
+
+
+ Handling Routes:
+ app.use([path,] callback [,callback..])
+mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path.

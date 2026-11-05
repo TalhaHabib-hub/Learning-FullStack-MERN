@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   console.log('1st dummy middle ware', req.url)

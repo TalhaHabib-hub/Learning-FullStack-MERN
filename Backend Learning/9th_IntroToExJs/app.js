@@ -42,3 +42,13 @@ const PORT = 3004;
 app.listen(PORT, () => {
   console.log(`server is running on address http://localhost:${PORT}`);
 });
+
+
+// Talha in the above one the get is : an HTTP method for which the middleware function applies.
+// also talha in the first place before callback function we gave path (route) for which the middleware function applies
+// then talha the callback function is called the middlware function
+//Talha the callback argument to the middleware function is called the "next"
+// Talha the first argument which is request is and HTTP request argument to the middleware function
+// and the res argument to the middleware function
+
+// use is Talha a wild card means executes for all but by making the things specific like get or post will obay the exact path given
