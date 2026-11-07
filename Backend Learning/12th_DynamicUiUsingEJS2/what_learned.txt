@@ -1,0 +1,13 @@
+Need of Dynamic UI
+Personalized Content: Tailors response based on user profiles, preferences, or behaviors to enhance user experience.
+Dynamic Data Delivery: Provides real-time information that updates with each requests, such as live scores or stock prices.
+Security and Access Control: Delivers different content based on user authentication and authorization levels.
+Localization and Internationalization: Adjusts responses to accommodate different languages, cultures, or regional settings.
+API versatility: Supports multiple client types (web, mobile, IoT) by providing appropriate data formats and structures.
+
+What is EJS
+HTML with JS: EJS lets you embed javascript code within HTML.
+Simple Syntax: Uses <% %> for control flow and <%= %> for output.
+Easy to Learn: Familar to those who know HTML  and javascript.
+Template Reuse: Supports partials for reusing code snippets.
+Flexible Logic : Allows full javascript expressions in Templates

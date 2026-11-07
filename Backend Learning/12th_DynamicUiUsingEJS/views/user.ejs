@@ -4,30 +4,83 @@
 
     <main class="mx-auto max-w-6xl space-y-8 px-6 py-10 md:py-14">
       <section class="rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/60 ring-1 ring-slate-200 md:p-12">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-rose-500">
-          A place to begin
-        </p>
-        <h1 class="max-w-xl text-4xl font-bold tracking-tight text-slate-900 md:text-6xl">
-          Make room for a better stay.
-        </h1>
-        <p class="mt-5 max-w-lg text-lg text-slate-600">
-          Your next chapter starts with a place that feels like yours.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="/host/add_home"
-            class="inline-flex items-center rounded-full bg-rose-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
-          >
-            Add your home <span aria-hidden="true" class="ml-2">+</span>
-          </a>
-          <a
-            href="#added-homes"
-            class="inline-flex items-center rounded-full border border-slate-200 px-6 py-3 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
-          >
-            Explore homes
-          </a>
-        </div>
-      </section>
+<!-- ============ HERO SECTION ============ -->
+<section class="px-4 py-8 sm:px-8">
+  <div
+    id="hero-slider"
+    class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-200/60"
+  >
+    <!-- Background slides (fill the whole card) -->
+    <div class="absolute inset-0">
+      <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-100"
+           style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80'); transition: opacity 1800ms ease-in-out;"></div>
+      <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0"
+           style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1920&q=80'); transition: opacity 1800ms ease-in-out;"></div>
+      <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0"
+           style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80'); transition: opacity 1800ms ease-in-out;"></div>
+      <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0"
+           style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1920&q=80'); transition: opacity 1800ms ease-in-out;"></div>
+      <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0"
+           style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); transition: opacity 1800ms ease-in-out;"></div>
+
+      <!-- White fade so the dark text stays readable -->
+      <div class="absolute inset-0 bg-white/85 md:bg-transparent md:bg-gradient-to-r md:from-white md:via-white/85 md:to-transparent"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 px-8 py-12 sm:px-12 sm:py-14">
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-rose-500">
+        A place to begin
+      </p>
+
+      <h1 class="mt-5 max-w-xl text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl">
+        Make room for a better stay.
+      </h1>
+
+      <p class="mt-5 max-w-md text-lg text-slate-600">
+        Your next chapter starts with a place that feels like yours.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href="/host/add_home"
+          class="inline-flex items-center rounded-full bg-rose-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-rose-500/30 transition hover:bg-rose-600"
+        >
+          Add your home <span aria-hidden="true" class="ml-2">+</span>
+        </a>
+        <a
+          href="#added-homes"
+          class="inline-flex items-center rounded-full border border-slate-200 bg-white/70 px-6 py-3 text-base font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+        >
+          Explore homes
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const slides = document.querySelectorAll('#hero-slider .hero-slide');
+    if (slides.length < 2) return;
+
+    // Preload so the fade never shows a blank frame
+    slides.forEach((s) => {
+      const url = s.style.backgroundImage.slice(5, -2);
+      const img = new Image();
+      img.src = url;
+    });
+
+    let current = 0;
+    setInterval(() => {
+      const next = (current + 1) % slides.length;
+      slides[next].classList.replace('opacity-0', 'opacity-100'); // fade next in
+      slides[current].classList.replace('opacity-100', 'opacity-0'); // fade current out
+      current = next;
+    }, 5000);
+  })();
+</script>
+<!-- ============ END HERO ============ -->
 
       <section id="added-homes" class="rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/60 ring-1 ring-slate-200 md:p-10">
         <div class="flex flex-wrap items-end justify-between gap-3">

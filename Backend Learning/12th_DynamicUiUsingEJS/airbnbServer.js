@@ -10,7 +10,7 @@ const {hostRouter} = require("./routes/hostRouter");
 
 const app = express();
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', 'views');// by default also this same but we have given here it explicitly 
 app.use(express.static(path.join(rootDir, 'public')))
 app.use(userRouter);
 app.use("/host", hostRouter);
