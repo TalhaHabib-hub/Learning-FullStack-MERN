@@ -1,0 +1,189 @@
+<%- include('partials/head') %>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <%- include('partials/nav') %>
+  <main>
+    <section class="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-cover bg-center px-6 py-20 sm:px-10 lg:px-16" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=2000&q=85')">
+      <div class="absolute inset-0 -z-10 bg-slate-950/65" aria-hidden="true"></div>
+      <div class="mx-auto w-full max-w-7xl">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200">Welcome to the Library Management Website</p>
+        <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-6xl">Discover Your Next Great Read</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-100 sm:text-xl">Explore our vast collection of books and find your next favorite!</p>
+        <a class="mt-9 inline-flex rounded-lg bg-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="#programming">Explore the library</a>
+         <a class="mt-9 inline-flex rounded-lg bg-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="/user">Register as a User</a>
+      </div>
+
+    </section>
+
+
+    
+<h2 class="mx-auto max-w-7xl px-4 pt-12 text-3xl font-bold tracking-tight text-slate-900 sm:px-6 sm:text-4xl lg:px-8" id="recently-added">Recently added Books</h2>
+<section aria-label="Recently added books" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <% addedBooks.forEach(each => { %>
+      <article class="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+        <img class="h-64 w-full bg-slate-100 object-contain p-4" src="<%= each['image'] %>" alt="<%= each['book-name'] %> cover" loading="lazy">
+        <div class="flex flex-1 flex-col p-5">
+          <h3 class="line-clamp-2 text-lg font-semibold text-slate-900"><%= each['book-name'] %></h3>
+          <h4 class="mt-2 text-sm leading-6 text-slate-600"><%= each['writer-name'] %></h4>
+          <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+            <a class="inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780132350884">Read book</a>
+            <a class="inline-flex self-start rounded-lg border border-indigo-600 px-4 py-2 text-sm font-semibold text-indigo-700 transition-colors hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="#">purchase</a>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+<h2 class="mx-auto max-w-7xl px-4 pt-12 text-3xl font-bold tracking-tight text-slate-900 sm:px-6 sm:text-4xl lg:px-8" id="programming">Programming Books</h2>
+    <section aria-label="Programming books" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class="bookfamous col-span-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg" alt="Clean Code" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Clean Code</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Robert C. Martin</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780132350884">Read book</a>
+  
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg" alt="The Pragmatic Programmer" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">The Pragmatic Programmer</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Andrew Hunt &amp; David Thomas</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780135957059">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781593279509-L.jpg" alt="Eloquent JavaScript" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Eloquent JavaScript</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Marijn Haverbeke</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781593279509">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg" alt="Design Patterns" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Design Patterns</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780201633610">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780262033848-L.jpg" alt="Introduction to Algorithms" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Introduction to Algorithms</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Thomas H. Cormen et al.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780262033848">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780134757599-L.jpg" alt="Refactoring" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Refactoring</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Martin Fowler</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780134757599">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780596517748-L.jpg" alt="JavaScript: The Good Parts" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">JavaScript: The Good Parts</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Douglas Crockford</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780596517748">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780735619678-L.jpg" alt="Code Complete" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Code Complete</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Steve McConnell</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780735619678">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg" alt="Designing Data-Intensive Applications" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Designing Data-Intensive Applications</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Martin Kleppmann</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781449373320">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780201835953-L.jpg" alt="The Mythical Man-Month" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">The Mythical Man-Month</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Frederick P. Brooks Jr.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780201835953">Read book</a>
+</div>
+      </div>
+    </section>
+<h2 class="mx-auto max-w-7xl px-4 pt-12 text-3xl font-bold tracking-tight text-slate-900 sm:px-6 sm:text-4xl lg:px-8">Medical Books</h2>
+      <section aria-label="Medical books" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781259644030-L.jpg" alt="Harrison's Principles of Internal Medicine" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Harrison's Principles of Internal Medicine</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: J. Larry Jameson, Anthony S. Fauci, Dennis L. Kasper et al.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781259644030">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781455770052-L.jpg" alt="Guyton and Hall Textbook of Medical Physiology" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Guyton and Hall Textbook of Medical Physiology</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: John E. Hall</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781455770052">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780323353175-L.jpg" alt="Robbins Basic Pathology" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Robbins Basic Pathology</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Vinay Kumar, Abul K. Abbas, Jon C. Aster</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780323353175">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780323392273-L.jpg" alt="Atlas of Human Anatomy" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Atlas of Human Anatomy</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Frank H. Netter</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780323392273">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780199689903-L.jpg" alt="Oxford Handbook of Clinical Medicine" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Oxford Handbook of Clinical Medicine</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Murray Longmore, Ian B. Wilkinson et al.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780199689903">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781259584732-L.jpg" alt="Goodman and Gilman's The Pharmacological Basis of Therapeutics" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Goodman &amp; Gilman's The Pharmacological Basis of Therapeutics</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Laurence L. Brunton et al.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781259584732">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780702070280-L.jpg" alt="Davidson's Principles and Practice of Medicine" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Davidson's Principles and Practice of Medicine</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Stuart H. Ralston et al.</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780702070280">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9781439107959-L.jpg" alt="The Emperor of All Maladies" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">The Emperor of All Maladies</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Siddhartha Mukherjee</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9781439107959">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780805095159-L.jpg" alt="Being Mortal" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">Being Mortal</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Atul Gawande</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780805095159">Read book</a>
+</div>
+
+<div class="each flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+  <img class="h-72 w-full bg-slate-100 object-contain p-4" src="https://covers.openlibrary.org/b/isbn/9780812988406-L.jpg" alt="When Breath Becomes Air" loading="lazy">
+  <h3 class="px-5 pt-4 text-lg font-semibold text-slate-900">When Breath Becomes Air</h3>
+  <h4 class="px-5 pt-2 text-sm leading-6 text-slate-600">Author: Paul Kalanithi</h4>
+  <a class="mx-5 mb-5 mt-auto inline-flex self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://openlibrary.org/isbn/9780812988406">Read book</a>
+</div>
+        </div>
+      </section>
+  </main>
+</body>
+</html>

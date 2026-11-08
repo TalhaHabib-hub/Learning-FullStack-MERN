@@ -1,0 +1,36 @@
+<%- include('partials/head') %>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <%- include('partials/nav') %>
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <section class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:p-8">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Library management</p>
+      <h1 class="text-2xl font-bold tracking-tight text-slate-900">Add a Book</h1>
+      <p class="mt-2 text-slate-600">Enter the book details to add it to the collection.</p>
+      <form class="mt-8 space-y-6" action="/admin/add-book" method="POST">
+        <div>
+          <label class="mb-2 block text-sm font-medium text-slate-700" for="name">Book name</label>
+          <input class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20" type="text" id="name" name="book-name" placeholder="e.g., Harry Potter">
+        </div>
+        <div>
+          <label class="mb-2 block text-sm font-medium text-slate-700" for="writer-name">Writer</label>
+          <input class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20" type="text" id="writer-name" name="writer-name" placeholder="e.g., Henry Renald">
+        </div>
+        <div>
+             <label for="image" class="mb-2 block text-sm font-medium text-slate-700">Book Image</label>
+            <input
+              id="image"
+              type="text"
+              name="image"
+              accept="image/*"
+              required
+              placeholder="Enter image URL"
+            class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+            />
+        </div>
+        <button class="inline-flex rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit">Add Book</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

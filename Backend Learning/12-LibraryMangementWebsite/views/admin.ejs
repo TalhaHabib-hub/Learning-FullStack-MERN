@@ -1,0 +1,18 @@
+<%- include('partials/head') %>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <%- include('partials/nav') %>
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <section class="mb-10">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">Library management</p>
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Admin Panel</h1>
+      <p class="mt-4 max-w-2xl text-lg leading-7 text-slate-600">Welcome to the Admin Panel. Manage the library system, including books, users, and reports.</p>
+    </section>
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <li><a class="block rounded-2xl bg-white p-6 font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="/admin/add-book"><span class="text-indigo-600">01</span><span class="ml-3">Add New Book</span><span class="mt-2 block text-sm font-normal text-slate-600">Add a title to the library collection.</span></a></li>
+      <li><a class="block rounded-2xl bg-white p-6 font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="/admin/manage-users"><span class="text-indigo-600">02</span><span class="ml-3">Manage Users</span><span class="mt-2 block text-sm font-normal text-slate-600">Review and manage library accounts.</span></a></li>
+      <li><a class="block rounded-2xl bg-white p-6 font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="/admin/view-reports"><span class="text-indigo-600">03</span><span class="ml-3">View Reports</span><span class="mt-2 block text-sm font-normal text-slate-600">View library activity and reports.</span></a></li>
+    </ul>
+  </main>
+</body>
+</html>
