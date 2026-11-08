@@ -20,7 +20,7 @@
 <h2 class="mx-auto max-w-7xl px-4 pt-12 text-3xl font-bold tracking-tight text-slate-900 sm:px-6 sm:text-4xl lg:px-8" id="recently-added">Recently added Books</h2>
 <section aria-label="Recently added books" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <% addedBooks.forEach(each => { %>
+    <% if (addedBooks.length > 0 ) {addedBooks.forEach(each => { %>
       <article class="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
         <img class="h-64 w-full bg-slate-100 object-contain p-4" src="<%= each['image'] %>" alt="<%= each['book-name'] %> cover" loading="lazy">
         <div class="flex flex-1 flex-col p-5">
@@ -32,7 +32,9 @@
           </div>
         </div>
       </article>
-    <% }) %>
+    <% }) }else{%>
+      <center>No books are added recently!</center>
+    <% } %>
   </div>
 </section>
 <h2 class="mx-auto max-w-7xl px-4 pt-12 text-3xl font-bold tracking-tight text-slate-900 sm:px-6 sm:text-4xl lg:px-8" id="programming">Programming Books</h2>
