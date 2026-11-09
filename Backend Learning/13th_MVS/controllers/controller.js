@@ -1,16 +1,17 @@
 exports.addHome = (req, res, next) => {
   res.render('addHome', {pageTitle: 'Add Home to airbnb'});
 }
+const { registeredHomes } = require('../models/appModel.js');
+const {homes} = require('../models/appModel.js');
 
-const registeredHomes = [];
-
-exports.addHomePost =  (req, res, next) => {
-  console.log('Home Registration successful for:', req.body, req.body.houseName);
-  registeredHomes.push(req.body);
+exports.addHomePost = (req, res, next) => {
+  const { houseName, location, price, url } = req.body;
+  const newHome = new homes(houseName, location, price, url );
+  newHome.save();
   res.render('homeAdded', {pageTitle: 'Home Added Successfully'});
 }
 
 exports.home = (req, res, next) => {
   console.log(registeredHomes);
-  res.render('home', {registeredHomes: registeredHomes, pageTitle: 'airbnb Home'});
+  res.render('home', {registeredHomes: homes.fetchAll(), pageTitle: 'airbnb Home'});
 }
