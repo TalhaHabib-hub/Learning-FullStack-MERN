@@ -28,6 +28,23 @@
                 <h2 class="truncate text-xl font-semibold text-gray-900"><%= home.houseName %></h2>
                 <p class="mt-2 text-sm text-gray-500"><span class="font-medium text-gray-700">Location:</span> <%= home.location %></p>
                 <p class="mt-4 border-t border-gray-100 pt-4 text-xl font-bold text-gray-900">$<%= home.price %><span class="ml-1 text-sm font-normal text-gray-500">per night</span></p>
+                <div class="mt-4 flex justify-end gap-2" aria-label="Home actions">
+                  <button type="button" aria-label="Delete home" title="Delete home" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-red-100 bg-red-50 text-red-600 transition hover:border-red-200 hover:bg-red-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18m-2 0-.9 14.1a2 2 0 0 1-2 1.9H7.9a2 2 0 0 1-2-1.9L5 6m4 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m-5 4v7m4-7v7" />
+                    </svg>
+                  </button>
+                  <button type="button" aria-label="Add home to favorites" title="Add to favorites" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-pink-100 bg-pink-50 text-pink-600 transition hover:border-pink-200 hover:bg-pink-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+                    </svg>
+                  </button>
+                  <button type="button" aria-label="Edit home" title="Edit home" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-gray-600 transition hover:border-gray-300 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m16.9 3.8 3.3 3.3M4 20l4.3-.9L20.2 7.2a2.3 2.3 0 0 0-3.3-3.3L5 15.7 4 20Z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </li>
           <% }) %>

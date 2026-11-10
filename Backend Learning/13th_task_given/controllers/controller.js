@@ -49,8 +49,14 @@ exports.booking = (req, res, next) => {
   res.render('store/booking', {pageTitle: 'booking Page'});
 }
 exports.favorites = (req, res, next) => {
-  res.render('store/favourite-list', {pageTitle: 'Favorites Page'});
+homes.fetchAll((homesFor) => {
+    res.render('store/favourite-list', {
+      registeredHomes: homesFor,
+      pageTitle: 'Favorite Home List'
+    });
+  });
 }
+
 exports.homeDetails = (req, res, next) => {
   res.render('store/home-detail', {pageTitle: 'Home Details'});
 }

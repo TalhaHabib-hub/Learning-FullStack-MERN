@@ -31,6 +31,16 @@
                 <span class="text-2xl font-bold text-gray-900">$<%= home.price %></span>
                 <span class="text-sm text-gray-500">per night</span>
               </div>
+              <div class="mt-5 flex items-center gap-2">
+                <button type="button" class="inline-flex flex-1 items-center justify-center rounded-lg bg-red-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                  Book Now
+                </button>
+                <button type="button" aria-label="Add to favorites" title="Add to favorites" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-pink-100 bg-pink-50 text-pink-600 transition hover:border-pink-200 hover:bg-pink-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </li>
         <% }) %>
