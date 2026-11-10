@@ -1,0 +1,115 @@
+
+
+/* NAVBAR */
+.hotel-header {
+    background: #ef4444;
+    color: white;
+    padding: 16px 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 100;
+}
+
+.hotel-nav {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hotel-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hotel-nav-links > li {
+    position: relative;
+}
+
+.hotel-nav-links > li > a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.hotel-nav-links > li > a:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+/* DROPDOWN */
+.hotel-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 230px;
+    background: white;
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(12px) scale(0.96);
+    transform-origin: top center;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* SHOW ONLY THE HOVERED DROPDOWN */
+.hotel-dropdown:hover > .hotel-dropdown-menu,
+.hotel-dropdown:focus-within > .hotel-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/* DROPDOWN LINKS */
+.hotel-dropdown-menu li a {
+    display: block;
+    padding: 12px 14px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hotel-dropdown-menu li a:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .hotel-header {
+        padding: 12px 8px;
+    }
+
+    .hotel-nav-links {
+        gap: 2px;
+    }
+
+    .hotel-nav-links > li > a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .hotel-dropdown-menu {
+        width: 210px;
+    }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

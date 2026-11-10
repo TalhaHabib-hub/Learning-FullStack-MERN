@@ -1,0 +1,54 @@
+<header class="bg-red-500 text-white p-4 shadow-md">
+  <nav class="container mx-auto flex justify-between items-center">
+    <ul class="flex space-x-4 items-center">
+
+      <!-- Home -->
+      <li>
+        <a href="/" class="block hover:bg-red-400 py-2 px-4 rounded transition duration-300">
+          Home
+        </a>
+      </li>
+
+      <!-- STORE Dropdown -->
+      <li class="relative group">
+        <a href="/store" class="hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white py-2 px-4 rounded transition duration-300 flex items-center gap-1">
+          Store
+        </a>
+
+        <div class="absolute left-0 top-full w-52 pt-2
+                    opacity-0 invisible translate-y-2
+                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                    group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
+                    transition-all duration-300 ease-out z-50">
+          <div class="bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden py-1">
+            <a href="/store/booking" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Booking</a>
+            <a href="/store/favorites" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Favorite List</a>
+            <a href="/store/home-details" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Home Details</a>
+            <a href="/store/home-list" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Home List</a>
+            <a href="/store/reservations" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Reservations</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ADMIN Dropdown -->
+      <li class="relative group">
+        <a href="/admin" class="hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white py-2 px-4 rounded transition duration-300 flex items-center gap-1">
+          Admin
+        </a>
+
+        <div class="absolute left-0 top-full w-52 pt-2
+                    opacity-0 invisible translate-y-2
+                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                    group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
+                    transition-all duration-300 ease-out z-50">
+          <div class="bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden py-1">
+            <a href="/admin/add-home" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Add Home</a>
+            <a href="/admin/home-list" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Admin Home List</a>
+            <a href="/admin/edit-home" class="block px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition">Edit Home</a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </nav>
+</header>
