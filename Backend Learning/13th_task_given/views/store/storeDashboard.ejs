@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <section class="overflow-hidden rounded-3xl bg-red-500 px-6 py-12 text-white shadow-lg sm:px-10 sm:py-16">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-red-100">Welcome to the store</p>
+        <h1 class="max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">Find a home for your next stay.</h1>
+        <p class="mt-4 max-w-2xl text-lg text-red-50">Browse registered homes, explore the details, and keep track of your bookings.</p>
+        <a href="/store/home-list" class="mt-8 inline-flex rounded-lg bg-white px-5 py-3 font-semibold text-red-600 shadow-sm transition hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          Browse homes
+        </a>
+      </section>
+
+      <section class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/store/home-list" class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <h2 class="text-xl font-semibold text-gray-900">Browse homes</h2>
+          <p class="mt-2 text-gray-600">Explore the homes available in the store.</p>
+        </a>
+        <a href="/store/favorites" class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <h2 class="text-xl font-semibold text-gray-900">Favorite list</h2>
+          <p class="mt-2 text-gray-600">Visit your saved homes.</p>
+        </a>
+        <a href="/store/booking" class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          <h2 class="text-xl font-semibold text-gray-900">Bookings</h2>
+          <p class="mt-2 text-gray-600">Review your booking information.</p>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
