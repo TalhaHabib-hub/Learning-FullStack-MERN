@@ -4,7 +4,7 @@ const {
   addHomePost,
   admin,
   homeListadmin,
-  editHome,
+  edit,
 } = require("../controllers/controller.js");
 
 const express = require("express");
@@ -14,6 +14,6 @@ adminRouter.get("/admin/add-home", addHome);
 adminRouter.get("/admin", admin);
 adminRouter.post("/admin/add-home", addHomePost);
 adminRouter.get("/admin/home-list", homeListadmin);
-adminRouter.get("/admin/edit-home", editHome);
+adminRouter.get("/admin/add-home/:id",edit)
 
 exports.adminRouter = adminRouter;

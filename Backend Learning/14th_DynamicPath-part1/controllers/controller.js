@@ -1,7 +1,7 @@
 const { homes } = require("../models/appModel.js");
 const { Favourite } = require("../models/favouriteMode.js");
 exports.addHome = (req, res, next) => {
-  res.render("admin/addHome", { pageTitle: "Add Home to airbnb" });
+  res.render("admin/addHome", { pageTitle: "Add Home to airbnb" ,state:false});
 };
 
 exports.addHomePost = (req, res, next) => {
@@ -33,10 +33,12 @@ exports.homeListadmin = (req, res, next) => {
   });
 };
 
-exports.editHome = (req, res, next) => {
+exports.edit = (req, res, next) => {
+  const homeId = req.param.Id;
+  const state = req.query.edit;
   homes.fetchAll((homesFor) => {
-    res.render("admin/edit-home", {
-      registeredHomes: homesFor,
+    res.render("admin/addHome", {
+      state: state,
       pageTitle: "Edit Home",
     });
   });

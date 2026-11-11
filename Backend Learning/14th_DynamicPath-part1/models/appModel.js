@@ -10,7 +10,7 @@ class homes {
     this.url = url;
   }
   save() {
-    this.id = Math.floor(Math.random() * 1000) + 1;
+    this.id =String( Math.floor(Math.random() * 1000) + 1);
     homes.fetchAll((registeredHomes) => {
       registeredHomes.push(this);
 
