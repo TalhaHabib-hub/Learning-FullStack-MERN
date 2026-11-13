@@ -1,9 +1,11 @@
    <form action="/store/favorite/<%= home.id%>" method="POST">
                  <input type="hidden" name="id" value="<%= home.id %>">
-                  <button type="submit" class="inline-flex flex-1 items-center justify-center rounded-lg bg-white px-4 py-3 text-sm font-semibold text-red-500 shadow-sm transition hover:bg-red-700 
+                  <button type="submit" aria-label="Add to favorites" title="Add to favorites" class="inline-flex flex-1 items-center justify-center rounded-lg border-2 border-red-500 bg-white px-4 py-3 text-sm font-semibold text-red-500 shadow-sm transition hover:bg-red-50
                     text-white-700
                     focus-visible:outline focus-visible:outline-2 
                   text-center  focus-visible:outline-offset-2 focus-visible:outline-red-600">
-                    add to favorite
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5 shrink-0" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+                    </svg>
                 </button>
                 </form>
