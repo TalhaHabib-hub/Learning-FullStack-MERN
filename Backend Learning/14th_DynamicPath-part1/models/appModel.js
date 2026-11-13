@@ -10,9 +10,19 @@ class homes {
     this.url = url;
   }
   save() {
-    this.id =String( Math.floor(Math.random() * 1000) + 1);
     homes.fetchAll((registeredHomes) => {
-      registeredHomes.push(this);
+      if (this.id) {
+        registeredHomes = registeredHomes.map((home) => {
+          if (home.id === this.id) {
+            return this;
+          } else {
+            return home;
+          }
+        });
+      } else {
+        this.id = String(Math.floor(Math.random() * 1000) + 1);
+        registeredHomes.push(this);
+      }
 
       fs.writeFile(datapath, JSON.stringify(registeredHomes), (err) => {
         if (err) {
@@ -46,6 +56,29 @@ class homes {
               res.redirect('/');  }
             }
       */
+    });
+  }
+
+  static deleteHomefunction(homeId, callback) {
+    homes.fetchAll((registeredHomes) => {
+      const homeFound = registeredHomes.some(
+        (home) => String(home.id) === String(homeId),
+      );
+
+      if (!homeFound) {
+        return callback(new Error("Unable to find home for deleting"));
+      }
+
+      const remainingHomes = registeredHomes.filter(
+        (home) => String(home.id) !== String(homeId),
+      );
+      fs.writeFile(datapath, JSON.stringify(remainingHomes), (err) => {
+        if (err) {
+          return callback(err);
+        }
+
+        callback(null);
+      });
     });
   }
 }

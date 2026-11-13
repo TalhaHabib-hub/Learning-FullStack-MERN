@@ -1,24 +1,38 @@
 const { homes } = require("../models/appModel.js");
 const { Favourite } = require("../models/favouriteMode.js");
+
 exports.addHome = (req, res, next) => {
   res.render("admin/addHome", { pageTitle: "Add Home to airbnb" ,state:false});
 };
 
-exports.addHomePost = (req, res, next) => {
-  const { houseName, location, price, url } = req.body;
-  const newHome = new homes(houseName, location, price, url);
+exports.addHomePost = (req, res, next) => {  
+    const { houseName, location, price, url } = req.body;
+    const newHome = new homes(houseName, location, price, url);
+    newHome.save();
+    res.redirect('/');
+  } 
+
+
+exports.editHomePost = (req, res, next) => {  
+    console.log('Talha',req.body)
+    const {id, houseName, location, price, url } = req.body;
+    const newHome = new homes(houseName, location, price, url);
+  newHome.id = id;
   newHome.save();
-  res.render("admin/homeAdded", { pageTitle: "Home Added Successfully" });
-};
+  res.redirect('/');
+  } 
+
 
 exports.home = (req, res, next) => {
-  homes.fetchAll((homesFor) => {
-    res.render("store/home", {
-      registeredHomes: homesFor,
-      pageTitle: "airbnb Home",
+    homes.fetchAll((homesFor) => {
+      res.render("store/home", {
+        registeredHomes: homesFor,
+        pageTitle: "airbnb Home",
+      });
     });
-  });
-};
+  };
+
+
 
 exports.admin = (req, res, next) => {
   res.render("admin/dashboard", { pageTitle: "Admin Dashboard" });
@@ -34,15 +48,47 @@ exports.homeListadmin = (req, res, next) => {
 };
 
 exports.edit = (req, res, next) => {
-  const homeId = req.param.Id;
-  const state = req.query.edit;
-  homes.fetchAll((homesFor) => {
-    res.render("admin/addHome", {
-      state: state,
+  const homeId = req.params.id;
+  const state = req.query.edit === "true";
+  homes.findById(homeId, (home) => {
+    if (!home) {
+      console.log('home not found..!');
+       return res.redirect('/admin/home-list');
+    }else{
+      res.render("admin/addHome", {
+         home : home,
+        state: state,
       pageTitle: "Edit Home",
-    });
-  });
+      });
+    }
+  }
+);
 };
+exports.deleteHome = (req, res, next) => {
+  const homeId = req.params.id;
+  homes.findById(homeId, (home) => {
+    if (!home) {
+      console.log('home not found..!');
+      return res.redirect('/admin/home-list');
+    } else {
+     
+      homes.deleteHomefunction(homeId, (err) => {
+        if (!err) {
+          res.redirect('/admin/home-list');
+        }
+        else {
+          console('unable to delete home')
+        }
+        });     
+    }
+  }
+);
+};
+
+
+
+
+
 
 exports.store = (req, res, next) => {
   res.render("store/storeDashboard", { pageTitle: "Store Page" });
@@ -88,7 +134,7 @@ exports.homeDetails = (req, res, next) => {
         pageTitle: "Home Details",
       });
     } else {
-      res.redirect("/");
+      res.redirect("/admin/home-list");
     }
   });
 };

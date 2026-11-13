@@ -4,7 +4,8 @@
     <%- include('../partials/nav') %>
     <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
       <h1 class="text-3xl font-bold mb-6 text-center text-gray-800"><%= state ? "Update" : "Register" %> Your Home on AirBnB</h1>
-      <form action="/admin/add-home" method="POST" class="max-w-md mx-auto">
+      <form action="/admin/<%= state ? "edit-home":"add-home" %>" method="POST" class="max-w-md mx-auto">
+         <input type="hidden" name="id" value="<%= state ? home.id : "" %>"/>
         <input
           type="text"
           name="houseName"
@@ -15,18 +16,21 @@
         <input
           type="text"
           name="location"
+          value="<%= state ? home.location : "" %>"
           placeholder="Enter your Location"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
         required/>
         <input
           type="text"
           name="price"
+          value="<%= state ? home.price : "" %>"
           placeholder="Enter price per night"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
        required />
         <input
           type="text"
           name="url"
+          value="<%= state ? home.url : "" %>"
           placeholder="Enter image URL"
           class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
         required/>
