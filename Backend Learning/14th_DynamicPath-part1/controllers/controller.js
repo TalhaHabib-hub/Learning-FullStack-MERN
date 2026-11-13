@@ -13,8 +13,7 @@ exports.addHomePost = (req, res, next) => {
   } 
 
 
-exports.editHomePost = (req, res, next) => {  
-    console.log('Talha',req.body)
+exports.editHomePost = (req, res, next) => { 
     const {id, houseName, location, price, url } = req.body;
     const newHome = new homes(houseName, location, price, url);
   newHome.id = id;
@@ -71,10 +70,15 @@ exports.deleteHome = (req, res, next) => {
       console.log('home not found..!');
       return res.redirect('/admin/home-list');
     } else {
-     
       homes.deleteHomefunction(homeId, (err) => {
         if (!err) {
-          res.redirect('/admin/home-list');
+          Favourite.removefromfavorite(homeId, (err) => {
+            if (!err) {
+              res.redirect('/admin/home-list');
+            } else {
+              console.log('error while deleting from favorities',err)
+            }
+          })
         }
         else {
           console('unable to delete home')
@@ -85,7 +89,17 @@ exports.deleteHome = (req, res, next) => {
 );
 };
 
-
+exports.favHomeDelete = (req, res, next) => {
+  const homeId = req.params.id;
+  console.log('talha ', homeId);
+  Favourite.removefromfavorite(homeId, (err) => {
+    if (!err) {
+      return res.redirect('/store/favorites');
+    } else {
+      console.log('error happend while adding to favorite ', err);
+    }
+  })
+}
 
 
 

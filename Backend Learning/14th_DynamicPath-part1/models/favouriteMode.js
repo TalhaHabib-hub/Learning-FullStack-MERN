@@ -24,6 +24,20 @@ exports.Favourite = class Favourite {
     });
   }
 
+  static removefromfavorite(id,callback) {
+    Favourite.getfavouriteHomes(favouriteHomes => {
+      favouriteHomes = favouriteHomes.filter(each => each !== id);
+       fs.writeFile(datapath, JSON.stringify(favouriteHomes), (err) => {
+          if (err) {
+            console.error("Error writing to favourite data file:", err);
+            callback(err);
+          } else {
+            callback(null);
+          }
+        });
+    })
+  }
+
   static getfavouriteHomes(callback) {
     fs.readFile(datapath, (err, data) => {
       callback(!err ? JSON.parse(data) : []);

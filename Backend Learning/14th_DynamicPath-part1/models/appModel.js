@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { home } = require("../controllers/controller");
 const datapath = path.join(__dirname, "../data/homeData.json");
 
 class homes {
@@ -45,34 +46,19 @@ class homes {
         (home) => String(home.id) === homeId,
       );
       callback(homeFound);
-      /*
-      callback(homeFound) --------- will call this below function with the home 
-      this is callback actually a function which is passed from controller.js file to this function and this function will be called when the home is found or not found
-      in controller.js file we have this function which is passed as callback to this function
-      callback = (homeFound) => {
-           if(homeFound){
-               res.render('store/home-detail', {home: homeFound,pageTitle: 'Home Details'});}
-           else{
-              res.redirect('/');  }
-            }
-      */
+
     });
   }
 
   static deleteHomefunction(homeId, callback) {
     homes.fetchAll((registeredHomes) => {
-      const homeFound = registeredHomes.some(
-        (home) => String(home.id) === String(homeId),
-      );
-
-      if (!homeFound) {
-        return callback(new Error("Unable to find home for deleting"));
-      }
-
-      const remainingHomes = registeredHomes.filter(
-        (home) => String(home.id) !== String(homeId),
-      );
-      fs.writeFile(datapath, JSON.stringify(remainingHomes), (err) => {
+      homes.findById(homeId, (homeFound) => {
+        if (!homeFound) {
+          return callback(new Error("Unable to find home for deleting"));
+        }
+      })
+      registeredHomes = registeredHomes.filter(home => home.id !== homeId)
+      fs.writeFile(datapath, JSON.stringify(registeredHomes), (err) => {
         if (err) {
           return callback(err);
         }
