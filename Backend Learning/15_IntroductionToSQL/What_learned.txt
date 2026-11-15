@@ -1,0 +1,14 @@
+What is a DB (Data base)
+1. Store Data: Keep large amount of data in a structured format.
+2. Enable Data Management: Allow for adding, updating, and deleting data easily.
+3. Facilitate Quick Access: Provide fast retrieval of data through queries.
+4. Ensure Data Integrity: Maintain accuracy and consistency of data over time.
+5. Support Multiple Userskls: Handle concurrent access by many users simultaneously.
+6. Secure Data: protect information through access controls and authentication.
+
+
+Introduction to SQL DB
+Vertical scalability: Typically scaled by increasing the resources of a single b server( scaling up).
+Relationships: Tables can have multiple types of relationships.
+Relational Model: Organize data into tables with rows adn columns.
+Fixed Schema: Require a predefined schema; the structure of the data must be known in advance
