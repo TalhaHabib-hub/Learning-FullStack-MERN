@@ -1,0 +1,87 @@
+What is a DB (Database)
+├── Store Data
+│   └── Keeps large amounts of data in a structured format.
+├── Enable Data Management
+│   ├── Add data
+│   ├── Update data
+│   └── Delete data
+├── Facilitate Quick Access
+│   └── Provides fast retrieval of data through queries.
+├── Ensure Data Integrity
+│   └── Maintains accuracy and consistency of data over time.
+├── Support Multiple Users
+│   └── Handles concurrent access by many users simultaneously.
+└── Secure Data
+    └── Protects information through access controls and authentication.
+
+Introduction to SQL DB
+├── Vertical Scalability
+│   └── Scaled by increasing the resources of a single server (scaling up).
+├── Relationships
+│   └── Tables can have multiple types of relationships.
+├── Relational Model
+│   └── Organizes data into tables with rows and columns.
+└── Fixed Schema
+    └── Requires a predefined schema; the structure of the data must be known in advance.
+
+Introduction to SQL DB --- MySQL
+├── Use SQL
+│   └── Query and manage data using a standardized and widely-used language.
+├── ACID Compliance
+│   └── Supports transactions that are Atomic, Consistent, Isolated, and Durable.
+└── Complex Queries
+    └── Excels at handling complex queries and relationships between data.
+
+
+Introduction to NoSQL DB
+├── Flexible Schema
+│   └── Allows dynamic schemas, accommodating unstructured or semi-structured data without predefined structures.
+├── Duplication Over Relations
+│   └── Duplicates data across records (denormalization) to improve performance and scalability, instead of relying on complex relationships and joins.
+├── Horizontal Scalability
+│   └── Designed to scale out by adding more servers, handling large volumes of data efficiently.
+└── Performance
+    └── Optimized for high throughput and low latency, making it suitable for real-time applications.
+  
+SQL vs NoSQL
+├── SQL
+│   └── Relational
+│       └── Structured data stored in tables with fixed schemas
+├── NoSQL
+│   ├── Key-Value
+│   ├── Graph
+│   ├── Wide Columns
+│   └── Document
+
+
+Features of SQL vs NoSQL
+├── Data Model
+│   ├── SQL Database
+│   │   └── Relational (example: tables with rows and columns)
+│   └── NoSQL Database
+│       └── Non-relational (example: key-value, graph, document)
+├── Schema
+│   ├── SQL Database
+│   │   └── Fixed schema
+│   └── NoSQL Database
+│       └── Flexible schema
+├── Scalability
+│   ├── SQL Database
+│   │   └── Vertically scalable
+│   └── NoSQL Database
+│       └── Horizontally scalable
+├── Query Language
+│   ├── SQL Database
+│   │   └── SQL
+│   └── NoSQL Database
+│       └── Various query languages and APIs
+├── ACID Compliance
+│   ├── SQL Database
+│   │   └── Strong ACID compliance
+│   └── NoSQL Database
+│       └── Varies; often prioritizes performance and availability
+└── Use Cases
+    ├── SQL Database
+    │   └── Structured data and complex queries
+    └── NoSQL Database
+        └── Unstructured data and real-time applications
