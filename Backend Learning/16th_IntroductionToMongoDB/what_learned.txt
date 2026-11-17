@@ -1,0 +1,28 @@
+MongoDB
+├─ What it is
+│  ├─ MongoDB is both the product and the company that builds it.
+│  └─ The name comes from the word "Humongous."
+│
+├─ Database type
+│  └─ NoSQL Document Database
+│     ├─ Stores data in flexible, JSON-like documents.
+│     └─ Uses a dynamic schema, so fields can vary across documents.
+│
+├─ Key features
+│  ├─ High Performance
+│  │  └─ Optimized for fast read and write operations.
+│  ├─ Scalability
+│  │  └─ Supports horizontal scaling through sharding.
+│  ├─ High Availability
+│  │  └─ Provides replication with automatic failover.
+│  ├─ Rich Query Capabilities
+│  │  └─ Offers powerful querying, indexing, and aggregation.
+│  ├─ Geospatial and Text Search
+│  │  └─ Includes support for location-based and full-text queries.
+│  ├─ Cross-Platform Compatibility
+│  │  └─ Works across different operating systems and programming languages.
+│  └─ Easy Integration
+│     └─ Integrates smoothly with modern development stacks.
+│
+└─ Summary
+   └─ MongoDB is a flexible, scalable, high-performance NoSQL database designed for modern applications.
