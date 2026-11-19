@@ -37,7 +37,7 @@
                     <p class="mt-4 border-t border-gray-100 pt-4 text-xl font-bold text-gray-900">$<%= home.price %>
                         <span class="ml-1 text-sm font-normal text-gray-500">per night</span></p>
                     <div class="mt-4 flex justify-end gap-2" aria-label="Home actions">
-                      <a href='/admin/delete-home/<%= home.id%>' aria-label="Delete home" title="Delete home"
+                      <a href='/admin/delete-home/<%= home._id%>' aria-label="Delete home" title="Delete home"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-red-100 bg-red-50 text-red-600 transition hover:border-red-200 hover:bg-red-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                           stroke-width="1.8" class="h-5 w-5" aria-hidden="true">
@@ -45,7 +45,7 @@
                             d="M3 6h18m-2 0-.9 14.1a2 2 0 0 1-2 1.9H7.9a2 2 0 0 1-2-1.9L5 6m4 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m-5 4v7m4-7v7" />
                         </svg>
                       </a>
-                      <a href="/admin/add-home/<%= home.id %>?edit=true" aria-label="Edit home" title="Edit home"
+                      <a href="/admin/add-home/<%= home._id %>?edit=true" aria-label="Edit home" title="Edit home"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-gray-600 transition hover:border-gray-300 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
 
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"

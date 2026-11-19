@@ -1,46 +1,42 @@
-const fs = require("fs");
-const path = require("path");
-const datapath = path.join(__dirname, "../data/favouriteData.json");
+const { ObjectId } = require('mongodb');
+const { get_db } = require('../utils/databaseUtil');
 
 
 exports.Favourite = class Favourite {
 
-  static addToFavourite(homeId, callback) { 
-    Favourite.getfavouriteHomes((favouriteHomes) => {
-      const homeExists = favouriteHomes.includes(homeId);
-      if (!homeExists) {
-        favouriteHomes.push( homeId );
-        fs.writeFile(datapath, JSON.stringify(favouriteHomes), (err) => {
-          if (err) {
-            console.error("Error writing to favourite data file:", err);
-            callback(err);
-          } else {
-            callback(null);
-          }
-        });
+  static addToFavourite(homeId) { 
+    let db = get_db();
+    Favourite.getfavouriteHomes().then((homesIDs) => {
+      const homeExist = homesIDs.some(home => home.id === homeId);
+      if (!homeExist) {
+        return db.collection('favourites').insertOne({ id: homeId });
+      }
+    })
+
+  }
+  static addToFavourite(homeId) { 
+    let db = get_db();
+    // WE MUST RETURN THE PROMISE HERE
+    return Favourite.getfavouriteHomes().then((homesIDs) => {
+      const homeExist = homesIDs.some(home => home.id === homeId);
+      if (homeExist) {
+        return null;
       } else {
-        callback(null);
+        return db.collection('favourites').insertOne({ id: homeId });
       }
     });
   }
 
-  static removefromfavorite(id,callback) {
-    Favourite.getfavouriteHomes(favouriteHomes => {
-      favouriteHomes = favouriteHomes.filter(each => each !== id);
-       fs.writeFile(datapath, JSON.stringify(favouriteHomes), (err) => {
-          if (err) {
-            console.error("Error writing to favourite data file:", err);
-            callback(err);
-          } else {
-            callback(null);
-          }
-        });
-    })
+  static removefromfavorite(homeID) {
+    let db = get_db();
+    return db.collection('favourites').deleteOne({ id: homeID});
+  
   }
 
-  static getfavouriteHomes(callback) {
-    fs.readFile(datapath, (err, data) => {
-      callback(!err ? JSON.parse(data) : []);
-    })
-   }
+  static getfavouriteHomes() {
+    let db = get_db();
+    // The second argument {} is the projection
+    // _id: 0 means "exclude the _id field"
+    return db.collection('favourites').find({}, { projection: { _id: 0 } }).toArray();
+  }
 }
