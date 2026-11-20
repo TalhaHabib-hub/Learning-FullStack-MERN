@@ -1,0 +1,12 @@
+what are cookies:
+1. cookies are small pieces of data stored in the user's browser by server.
+2. They help website remember user information and preferences between page loads or visits.
+3. cookies can manage user sessions and store data for personalized experiences.
+
+
+Problems with cookies:
+1. Cookies can be intercepted or stolen, posing security risks.
+2. They have limited storage capacity (about 4kb).
+3. Users can delete or modify cookies, leading to data loss or tampering.
+4. Data in cookies is not encrypted, making sensitve information vulnerable.
+5. Storing important info in cookies exposes it to client-side attacks.

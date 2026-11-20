@@ -1,0 +1,5 @@
+what is mongoose
+1. mongooose is an object data modeling (ODM) library for MongoDB and Node.js.
+2. Provides a schema-based solution to model application data.
+3. Simplifies data validation and type casting in Node.js applications.
+4. Enables easy interaction with MongoDB through intuititve
