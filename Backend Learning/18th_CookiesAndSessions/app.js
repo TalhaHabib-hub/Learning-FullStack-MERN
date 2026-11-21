@@ -23,8 +23,24 @@ app.set("views", "views");
 
 app.use(express.urlencoded());
 app.use(express.static(path.join(rootDir, "public")));
+
+
+app.use((req, res, next) => 
+{
+  console.log('in the request cookie ', req.get('Cookie'));
+ req.isLoggedIn = req.get("Cookie")
+  ?.split(";")
+  .some(cookie => cookie.trim() === "isLoggedIn=true") ?? false;
+})
 app.use(authRouter);
 app.use(storeRouter);
+app.use('/admin', (req, res, next) => {
+  if (!req.isLoggedIn) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
+})
 app.use(adminRouter);
 
 app.use(error);
