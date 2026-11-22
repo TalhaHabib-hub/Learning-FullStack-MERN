@@ -49,8 +49,13 @@
           </div>
         </div>
       </li>
-    <% } %>
+      <form action="/logout">
+      <li><button type="Submit">Log Out</button></li>
+      </form>
+    <% } else{%>
+    
       <li><a href="/login">Login</a></li>
+      <% } %>
 
     </ul>
   </nav>

@@ -27,10 +27,9 @@ app.use(express.static(path.join(rootDir, "public")));
 
 app.use((req, res, next) => 
 {
-  console.log('in the request cookie ', req.get('Cookie'));
- req.isLoggedIn = req.get("Cookie")
-  ?.split(";")
-  .some(cookie => cookie.trim() === "isLoggedIn=true") ?? false;
+console.log('in the request cookie ', req.get('Cookie'));
+  req.isLoggedIn = req.get("Cookie") ? req.get('Cookie').split("=")[1] === 'true' : false;
+  next();
 })
 app.use(authRouter);
 app.use(storeRouter);
@@ -40,6 +39,12 @@ app.use('/admin', (req, res, next) => {
   } else {
     next();
   }
+})
+app.get('/logout', (req, res, next) => {
+  // req.isLoggedIn = false;
+  res.clearCookie("isLoggedIn");
+  res.redirect('/');
+  // next();
 })
 app.use(adminRouter);
 
