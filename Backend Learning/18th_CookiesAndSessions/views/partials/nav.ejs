@@ -1,6 +1,6 @@
 <header class="bg-red-500 text-white p-4 shadow-md">
-  <nav class="container mx-auto flex justify-between items-center">
-    <ul class="flex space-x-4 items-center">
+  <nav class="relative flex min-h-10 w-full items-center">
+    <ul class="flex w-full items-center space-x-4">
 
       <!-- Home -->
       <li>
@@ -49,12 +49,26 @@
           </div>
         </div>
       </li>
-      <form action="/logout">
-      <li><button type="Submit">Log Out</button></li>
-      </form>
+      <li class="absolute right-0 top-1/2 -translate-y-1/2">
+        <form action="/logout" method="POST">
+          <button
+            type="submit"
+            class="rounded-lg border border-white/70 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-white hover:text-red-600"
+          >
+            Log Out
+          </button>
+        </form>
+      </li>
     <% } else{%>
     
-      <li><a href="/login">Login</a></li>
+      <li class="absolute right-0 top-1/2 -translate-y-1/2">
+        <a
+          href="/login"
+          class="rounded-lg border border-white/70 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-white hover:text-red-600"
+        >
+          Login
+        </a>
+      </li>
       <% } %>
 
     </ul>
