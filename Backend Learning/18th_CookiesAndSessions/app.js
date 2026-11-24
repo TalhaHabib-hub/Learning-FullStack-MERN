@@ -1,6 +1,8 @@
-const dns = require("node:dns");
 
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
+// dns.setServers(["8.8.8.8", "8.8.4.4"]);
+const dns = require("node:dns");
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
 
 const path = require("path");
 const express = require("express");
