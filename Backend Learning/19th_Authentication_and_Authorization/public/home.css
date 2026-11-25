@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #ff5a5f;
+  background-color: #273F42;
   padding: 1rem 2rem;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #e54e52;
+  background-color: #203639;
 }
 
 main {

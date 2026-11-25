@@ -1,45 +1,45 @@
 <%- include('../partials/head') %>
   </head>
-  <body>
+  <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <%- include('../partials/nav') %>
-    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
-      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800"><%= state ? "Update" : "Register" %> Your Home on AirBnB</h1>
-      <form action="/admin/<%= state ? "edit-home":"add-home" %>" method="POST" class="max-w-md mx-auto">
+    <main class="container mx-auto mt-10 max-w-2xl rounded-2xl border border-gray-200 bg-white p-6 shadow-lg sm:p-8">
+      <h1 class="mb-8 text-center text-3xl font-bold tracking-tight text-gray-900"><%= state ? "Update" : "Register" %> Your Home on AirBnB</h1>
+      <form action="/admin/<%= state ? "edit-home":"add-home" %>" method="POST" class="mx-auto max-w-md">
         <input type="hidden" name="id" value="<%= state ? home._id : "" %>"/>
         <input
           type="text"
           name="houseName"
           value="<%= state ? home.houseName : "" %>"
           placeholder="Enter your House Name"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          class="mb-4 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
         required/>
         <input
           type="text"
           name="location"
           value="<%= state ? home.location : "" %>"
           placeholder="Enter your Location"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          class="mb-4 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
         required/>
         <input
           type="text"
           name="price"
           value="<%= state ? home.price : "" %>"
           placeholder="Enter price per night"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          class="mb-4 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
        required />
         <input
           type="text"
           name="url"
           value="<%= state ? home.url : "" %>"
           placeholder="Enter image URL"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          class="mb-4 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
         required/>
         <textarea
           name="description"
           placeholder="Enter description about the home"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          class="mb-4 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
         required><%= state ? home.description : "" %></textarea>
-        <input type="submit" value="<%= state ? "Update": "submit" %>" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" />
+        <input type="submit" value="<%= state ? "Update": "submit" %>" class="w-full cursor-pointer rounded-xl bg-brand-500 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600" />
       </form>
     </main>
   </body>

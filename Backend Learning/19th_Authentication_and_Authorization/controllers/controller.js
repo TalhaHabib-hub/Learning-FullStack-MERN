@@ -2,11 +2,14 @@ const homes = require("../models/appModel.js");
 const Favourite = require("../models/favouriteMode.js");
 const mongoose = require("mongoose");
 const { check, validationResult } = require("express-validator");
+const User = require("../models/userModel.js");
+const bcrypt = require("bcryptjs");
 
 exports.addHome = (req, res, next) => {
   res.render("admin/addHome", {
     pageTitle: "Add Home to airbnb",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
     state: false,
   });
 };
@@ -28,6 +31,7 @@ exports.home = (req, res, next) => {
       registeredHomes: homes,
       state: false,
       isLoggedIn: req.session.isLoggedIn,
+      user:req.session.user,
     });
   });
 };
@@ -68,6 +72,7 @@ exports.admin = (req, res, next) => {
   res.render("admin/dashboard", {
     pageTitle: "Admin Dashboard",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
   });
 };
 
@@ -77,6 +82,7 @@ exports.homeListadmin = (req, res, next) => {
       registeredHomes: registeredHomes,
       pageTitle: "View Home List",
       isLoggedIn: req.session.isLoggedIn,
+      user:req.session.user,
     });
   });
 };
@@ -94,6 +100,7 @@ exports.edit = (req, res, next) => {
         state: state,
         pageTitle: "Edit Home",
         isLoggedIn: req.session.isLoggedIn,
+        user:req.session.user,
       });
     }
   });
@@ -135,12 +142,14 @@ exports.store = (req, res, next) => {
   res.render("store/storeDashboard", {
     pageTitle: "Store Page",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
   });
 };
 exports.booking = (req, res, next) => {
   res.render("store/booking", {
     pageTitle: "booking Page",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
   });
 };
 
@@ -153,6 +162,7 @@ exports.favorites = (req, res, next) => {
         favouriteHomes: favouriteHomes,
         pageTitle: "Favorite Home List",
         isLoggedIn: req.session.isLoggedIn,
+        user:req.session.user,
       });
     });
 };
@@ -198,6 +208,7 @@ exports.homeDetails = (req, res, next) => {
         home: home,
         pageTitle: "Home Details",
         isLoggedIn: req.session.isLoggedIn,
+        user:req.session.user,
       });
     })
     .catch(next);
@@ -206,12 +217,14 @@ exports.homesList = (req, res, next) => {
   res.render("store/homeList", {
     pageTitle: "Home List",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
   });
 };
 exports.reservations = (req, res, next) => {
   res.render("store/reserver", {
     pageTitle: "Reservations Page",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
   });
 };
 // login
@@ -219,13 +232,49 @@ exports.loginAction = (req, res, next) => {
   res.render("auth/login", {
     pageTitle: "login",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
+    errors: null,
   });
 };
-exports.loginSubmit = (req, res, next) => {
+exports.loginSubmit = async (req, res, next) => {
   // req.session.isLoggedIn = true;
   // res.cookie("isLoggedIn" , true);
-  req.session.isLoggedIn = true;
+  // req.session.isLoggedIn = true;
+  const { email, password } = req.body;
+  const user = await User.findOne({ email: email });// this is data base call so it would promise so we will await
+  if (!user) {
+    return res.status(422).render('auth/login', {
+      pageTitle: "login",
+      isLoggedIn: req.session.isLoggedIn,
+      user:req.session.user,
+      errors: ["email doesn't exits"],
+      oldInput:{email:email},//can just write email
+    })
+  }
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+      return res.status(422).render('auth/login', {
+      pageTitle: "login",
+      isLoggedIn: req.session.isLoggedIn,
+      user:req.session.user,
+      errors: ["Invalid credentials"],
+      oldInput:{email:email},//can just write email
+    })
+  }
+
+ req.session.isLoggedIn = true;
+ req.session.user = {
+  id: user._id.toString(),
+  firstName: user.firstName,
+  lastName: user.lastName,
+  email: user.email,
+  userType: user.userType,
+};
+
+ req.session.save((err) => {
+  if (err) return next(err);
   res.redirect("/");
+});
 };
 exports.postlogout = (req, res, next) => {
   // req.session.isLoggedIn = false;
@@ -251,6 +300,8 @@ exports.getsignup = (req, res, next) => {
   res.render("auth/signup", {
     pageTitle: "singup",
     isLoggedIn: req.session.isLoggedIn,
+    user:req.session.user,
+    errors: null,
   });
 };
 
@@ -259,12 +310,12 @@ exports.postsignup = [
     .trim()
     .isLength({ min: 2 })
     .withMessage("first name should be atleast 2 Characters long")
-    .matches(/^[A-Za-z]*s/)
-    .withMessage("first name should only contain 2 alphabets"),
+    .matches(/^[A-Za-z]+$/)
+    .withMessage("first name should only contain alphabets"),
 
   check("lastName")
-    .matches(/^[A-Za-z]*s/)
-    .withMessage("last name should only contain 2 alphabets"),
+    .matches(/^[A-Za-z]+$/)
+    .withMessage("last name should only contain alphabets"),
 
   check("email")
     .isEmail()
@@ -290,37 +341,85 @@ exports.postsignup = [
       if (value !== req.body.password) {
         throw new Error("Passwords do not match");
       }
-      return true;//validation passed
+      return true; //validation passed
     }),
-  
-  check('userType')
+
+  check("userType")
     .notEmpty()
-    .withMessage('please select a user type')
-    .isIn(['guest', 'host'])
-    .withMessage('Invalide user type'),
-  
-  check('terms')
+    .withMessage("please select a user type")
+    .isIn(["guest", "host"])
+    .withMessage("Invalide user type"),
+
+  check("terms")
     .notEmpty()
-    .withMessage('please accept the terms and conditions')
-    .custom((value, { req })=> {
-      if (value !== 'on') {
-        throw new Error('please accept the terms and conditions');
+    .withMessage("please accept the terms and conditions")
+    .custom((value, { req }) => {
+      if (value !== "on") {
+        throw new Error("please accept the terms and conditions");
       }
       return true;
     }),
-  
+
   (req, res, next) => {
-    const { firstName, lastName, email, password, userType } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      userType,
+      confirmPassword,
+      terms,
+    } = req.body;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).render("auth/signup", {
         pageTitle: "Signup",
         isLoggedIn: req.session.isLoggedIn,
-        errors: errors.array().map(err => err.msg),
-        oldInput:{firstName,lastName,email,password, userType},
-      })
+        user:req.session.user,
+        errors: errors.array().map((err) => err.msg),
+        oldInput: {
+          firstName,
+          lastName,
+          email,
+          password,
+          userType,
+          confirmPassword,
+          terms,
+        },
+      });
     }
-  res.redirect('/login');
-},
 
+    bcrypt
+      .hash(password, 12)
+      .then((hashedPassword) => {
+        const user = new User({
+          firstName,
+          lastName,
+          email,
+          password: hashedPassword,
+          userType,
+        });
+        return user.save(); // this is promise
+      })
+      .then(() => {
+        res.redirect("/login");
+      })
+      .catch((err) => {
+        return res.status(422).render("auth/signup", {
+          pageTitle: "Signup",
+          isLoggedIn: req.session.isLoggedIn,
+          user:req.session.user,
+          errors: [err.message],
+          oldInput: {
+            firstName,
+            lastName,
+            email,
+            password,
+            userType,
+            confirmPassword,
+            terms,
+          },
+        });
+      });
+  },
 ];

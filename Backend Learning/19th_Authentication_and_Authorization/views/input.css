@@ -2,7 +2,7 @@
 
 /* NAVBAR */
 .hotel-header {
-    background: #ef4444;
+    background: #273F42;
     color: white;
     padding: 16px 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
@@ -87,8 +87,8 @@
 }
 
 .hotel-dropdown-menu li a:hover {
-    background: #fee2e2;
-    color: #dc2626;
+    background: #f0f4f4;
+    color: #203639;
 }
 
 /* MOBILE */
