@@ -99,6 +99,10 @@ header {
     0 5px 14px rgba(0, 0, 0, 0.18);
 }
 .nav_bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   font-size: 14px;
   letter-spacing: 0.3px;
   color: #f5fbf8;
@@ -110,6 +114,11 @@ header {
   transition:
     color 180ms ease,
     border-color 180ms ease;
+}
+.nav_icon {
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #ffc4a3;
 }
 .nav_bar a:hover {
   color: #ffc4a3;

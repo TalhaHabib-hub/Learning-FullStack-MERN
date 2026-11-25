@@ -1,0 +1,45 @@
+Authentication and Authorization
+|
+|-- Authentication
+|   |-- Definition
+|   |   `-- Verifies the identity of a user or system
+|   |
+|   |-- Purpose
+|   |   `-- Ensures users are who they claim to be
+|   |
+|   |-- Process
+|   |   `-- Validates credentials like usernames and passwords
+|   |
+|   |-- Occurs When
+|   |   `-- At the start of a session or when accessing secured areas
+|   |
+|   |-- User Interaction
+|   |   `-- Requires user input, for example, logging in
+|   |
+|   |-- Managed By
+|   |   `-- Handled by both frontend and backend systems
+|   |
+|   `-- Example
+|       `-- User logs into an account with a password
+|
+`-- Authorization
+    |-- Definition
+    |   `-- Determines what resources a user can access
+    |
+    |-- Purpose
+    |   `-- Grants or denies permissions to resources and actions
+    |
+    |-- Process
+    |   `-- Checks user privileges and access levels
+    |
+    |-- Occurs When
+    |   `-- After authentication, during resource access
+    |
+    |-- User Interaction
+    |   `-- Usually transparent unless access is denied
+    |
+    |-- Managed By
+    |   `-- Mainly enforced by backend servers
+    |
+    `-- Example
+        `-- User accesses settings page only if they have the rights

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { IoBag } from "react-icons/io5";
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaMars, FaVenus, FaChild, FaHome, FaPalette, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const Header = () => {
@@ -22,13 +23,13 @@ const Header = () => {
           </Link>
         </div>
         <nav className={`nav_bar${menuOpen ? " is-open" : ""}`}>
-          <a href="#">Men</a>
-          <a href="#">Women</a>
-          <a href="#">Kids</a>
-          <a href="#">Home & Living</a>
-          <a href="#">Beauty</a>
+          <a href="#"><FaMars className="nav_icon" /> Men</a>
+          <a href="#"><FaVenus className="nav_icon" /> Women</a>
+          <a href="#"><FaChild className="nav_icon" /> Kids</a>
+          <a href="#"><FaHome className="nav_icon" /> Home & Living</a>
+          <a href="#"><FaPalette className="nav_icon" /> Beauty</a>
           <a href="#">
-            Studio <sup>New</sup>
+            <FaRegStar className="nav_icon" /> Studio <sup>New</sup>
           </a>
         </nav>
         <div className="search_bar">
