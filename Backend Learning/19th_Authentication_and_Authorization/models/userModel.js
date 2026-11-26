@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Favourite = require('../models/favouriteMode')
 
 const userShema = new mongoose.Schema({
   firstName: {
@@ -21,6 +20,10 @@ const userShema = new mongoose.Schema({
     enum: ['guest', 'host'],
     default:'guest'
   },
+  favourites: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'homes'
+  }]
   
 });
 

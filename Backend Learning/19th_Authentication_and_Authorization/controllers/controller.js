@@ -1,5 +1,5 @@
 const homes = require("../models/appModel.js");
-const Favourite = require("../models/favouriteMode.js");
+
 const mongoose = require("mongoose");
 const { check, validationResult } = require("express-validator");
 const User = require("../models/userModel.js");
@@ -124,19 +124,31 @@ exports.deleteHome = (req, res, next) => {
   });
 };
 
-exports.favHomeDelete = (req, res, next) => {
+exports.favHomeDelete = async (req, res, next) => {
   const homeId = req.params.id;
-  Favourite.findOneAndDelete({ homeID: homeId })
-    .then((result) => {
-      console.log("home deleted successfully");
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      res.redirect("/store/favorites");
-    });
+  const user_id =await req.session.user.id;
+  const user = await User.findById(user_id).populate('favourites');
+  
+  user.favourites =user.favourites.filter((each) => each._id.toString() !== homeId);
+  
+ await user.save();
+  res.redirect('/store/favorites');
+  
+  console.log(user);
 };
+// exports.favHomeDelete = async (req, res, next) => {
+//   const homeId = req.params.id;
+//   const user = await User.findById(req.session.user.id);
+
+//   if (!user) return next();
+
+//   user.favourites = user.favourites.filter(
+//     favouriteId => favouriteId.toString() !== homeId
+//   );
+
+//   await user.save();
+//   res.redirect("/store/favorites");
+// };
 
 exports.store = (req, res, next) => {
   res.render("store/storeDashboard", {
@@ -153,42 +165,31 @@ exports.booking = (req, res, next) => {
   });
 };
 
-exports.favorites = (req, res, next) => {
-  Favourite.find()
-    .populate("homeID")
-    .then((favourites) => {
-      const favouriteHomes = favourites.map((fav) => fav.homeID);
+exports.favorites = async (req, res, next) => {
+  // console.log(req.session.user.populate('favourites'));
+  const userId = req.session.user.id;
+  const user = await User.findById(userId).populate('favourites');
+ 
+  /*.populate('favourites') tells Mongoose to replace the IDs in the user’s favourites array with the corresponding home documents from the homes collection. That works because the favourites field is defined with ref: 'homes' in userModel.js.*/
       res.render("store/favourite-list", {
-        favouriteHomes: favouriteHomes,
+        favouriteHomes: user.favourites,
         pageTitle: "Favorite Home List",
         isLoggedIn: req.session.isLoggedIn,
         user:req.session.user,
       });
-    });
+    
 };
 
-exports.Postfavorites = (req, res, next) => {
+exports.Postfavorites = async (req, res, next) => {
   const id = req.body.id;
-  Favourite.findOne({ homeID: id })
-    .then((existing) => {
-      if (!existing) {
-        const fav = new Favourite({ homeID: id });
-        return fav
-          .save()
-          .then(() => {
-            console.log("fav home added");
-          })
-          .catch((err) => {
-            console.log("problem while adding to fav", err);
-          });
-      }
-    })
-    .then(() => {
-      res.redirect("/store/favorites");
-    })
-    .catch((err) => {
-      console.log(" home finding problem among fave", err);
-    });
+  const userId = await req.session.user.id;
+  const user = await User.findById(userId);
+  console.log('user', user);
+  if (!user.favourites.includes(id)) {
+    user.favourites.push(id);
+    await user.save();
+  }
+  res.redirect('/store/favorites');
 };
 exports.homeDetails = (req, res, next) => {
   const homeId = req.params.homeId; // this will get the id

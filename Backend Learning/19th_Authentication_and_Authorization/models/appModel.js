@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Favourite = require('../models/favouriteMode')
 
 const homeSchema = new mongoose.Schema({
   houseName: {
@@ -19,11 +18,11 @@ const homeSchema = new mongoose.Schema({
   
 });
 
-homeSchema.pre('findOneAndDelete', async function () {
-  console.log('came to pre hook to delete data id from favouite')
-  const homeId = this.getQuery()._id;
-  await Favourite.deleteMany({ homeID: homeId });
-})
+// homeSchema.pre('findOneAndDelete', async function () {
+//   console.log('came to pre hook to delete data id from favouite')
+//   const homeId = this.getQuery()._id;
+//   await Favourite.deleteMany({ homeID: homeId });
+// })
 
 
 module.exports = mongoose.model('homes', homeSchema);
