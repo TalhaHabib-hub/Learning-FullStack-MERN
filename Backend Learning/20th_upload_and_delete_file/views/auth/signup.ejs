@@ -1,0 +1,161 @@
+<%- include('../partials/head') %>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
+    <%- include('../partials/nav') %>
+
+    <main class="container mx-auto max-w-lg px-4 py-10 sm:px-6 sm:py-12">
+      <header class="mb-8 text-center">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-brand-600">Join the community</p>
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Create an account</h1>
+        <p class="mt-3 text-gray-600">Sign up to start booking or hosting homes.</p>
+      </header>
+
+      <form action="/signup" method="POST" class="space-y-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-lg sm:p-8">
+        <% if(typeof errors !== 'undefined' && errors && errors.length > 0){%>
+          <div id="signup-errors" class="overflow-hidden rounded-md border border-red-300 bg-red-100 text-xs text-red-700" role="alert" aria-live="polite">
+            <div class="flex items-center justify-between border-b border-red-300 px-3 py-1.5">
+              <p class="font-medium">Errors</p>
+              <button
+                type="button"
+                id="close-signup-errors"
+                class="flex h-5 w-5 items-center justify-center rounded text-lg leading-none text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-400"
+                aria-label="Dismiss errors"
+              >
+                &times;
+              </button>
+            </div>
+            <ul class="list-disc space-y-1 px-7 py-2">
+              <% errors.forEach((error)=>{%>
+                <li><%= error %></li>
+              <%})%>
+            </ul>
+          </div>
+        <%}%>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="firstName" class="mb-2 block text-sm font-medium text-gray-700">First name</label>
+            <input
+              id="firstName"
+              type="text"
+              name="firstName"
+              value='<%= errors?oldInput.firstName:"" %>'
+              autocomplete="given-name"
+              required
+              placeholder="First name"
+              class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+            />
+          </div>
+
+          <div>
+            <label for="lastName" class="mb-2 block text-sm font-medium text-gray-700">Last name</label>
+            <input
+              id="lastName"
+              type="text"
+              name="lastName"
+              value='<%= errors?oldInput.lastName:"" %>'
+              autocomplete="family-name"
+              placeholder="Last name"
+              class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            autocomplete="email"
+            value='<%= errors?oldInput.email:"" %>'
+            required
+            placeholder="you@example.com"
+            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+          />
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="password" class="mb-2 block text-sm font-medium text-gray-700">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value='<%= errors?oldInput.password:"" %>'
+              autocomplete="new-password"
+              required
+              placeholder="Create a password"
+              class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+            />
+          </div>
+
+          <div>
+            <label for="confirmPassword" class="mb-2 block text-sm font-medium text-gray-700">Confirm password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              name="confirmPassword"
+              autocomplete="new-password"
+              value='<%= errors?oldInput.confirmPassword:"" %>'
+              required
+              placeholder="Confirm password"
+              class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="userType" class="mb-2 block text-sm font-medium text-gray-700">Account type</label>
+          <select
+            id="userType"
+            name="userType"
+            required
+            class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 transition focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
+          >
+            <option value="" disabled <%= errors? oldInput.userType === '' ? 'selected' : '' : '' %>>Select an account type</option>
+            <option value="guest" <%= errors? oldInput.userType === 'guest' ? 'selected' : '' :''%>>Guest</option>
+            <option value="host" <%= errors? oldInput.userType === 'host' ? 'selected' : '' :''%>>Host</option>
+          </select>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input
+            id="terms"
+            type="checkbox"
+            name="terms"
+            value="on"
+            required
+            class="mt-1 h-4 w-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500"
+          />
+          <label for="terms" class="text-sm text-gray-600">
+            I agree to the
+            <a href="/terms" class="font-medium text-brand-600 hover:text-brand-700">Terms and Conditions</a>
+            and
+            <a href="/privacy" class="font-medium text-brand-600 hover:text-brand-700">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-xl bg-brand-500 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+        >
+          Create account
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-gray-600">
+        Already have an account?
+        <a href="/login" class="font-medium text-brand-600 hover:text-brand-700">Log in</a>
+      </p>
+    </main>
+    <script>
+      const closeSignupErrors = document.getElementById("close-signup-errors");
+      const signupErrors = document.getElementById("signup-errors");
+
+      closeSignupErrors?.addEventListener("click", () => {
+        signupErrors?.remove();
+      });
+    </script>
+  </body>
+</html>

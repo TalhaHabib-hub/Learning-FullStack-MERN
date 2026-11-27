@@ -1,0 +1,131 @@
+<header class="bg-brand-500 text-white p-4 shadow-md">
+  <nav class="relative flex min-h-10 w-full items-center">
+    <ul class="flex w-full items-center space-x-4">
+
+      <!-- Home -->
+      <li>
+        <a href="/" class="flex items-center gap-2 hover:bg-brand-600 py-2 px-4 rounded transition duration-300">
+          <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m3 11 9-8 9 8M5 10v10h14V10M9 20v-6h6v6" />
+          </svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <% if(isLoggedIn){ %>
+      <!-- STORE Dropdown -->
+
+      <% if(user.userType === 'guest'){ %>
+      <li class="relative group">
+        <a href="/store" class="hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white py-2 px-4 rounded transition duration-300 flex items-center gap-1">
+          <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9l2-5h14l2 5M5 13v7h14v-7M9 20v-6h6v6M3 9h18v4a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1-2-2Z" />
+          </svg>
+          <span>Store</span>
+        </a>
+
+        <div class="absolute left-0 top-full w-52 pt-2
+                    opacity-0 invisible translate-y-2
+                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                    group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
+                    transition-all duration-300 ease-out z-50">
+          <div class="bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden py-1">
+            <a href="/store/booking" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 2v4M16 2v4M3 10h18M5 5h14a2 2 0 0 1 2 2v12H3V7a2 2 0 0 1 2-2Z" /></svg>
+              Booking
+            </a>
+            <a href="/store/favorites" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" /></svg>
+              Favorite List
+            </a>
+            <a href="/store/home-details" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-8 9 8M5 10v10h14V10M9 20v-6h6v6" /></svg>
+              Home Details
+            </a>
+            <a href="/store/home-list" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>
+              Home List
+            </a>
+            <a href="/store/reservations" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1ZM8 12l2 2 5-5" /></svg>
+              Reservations
+            </a>
+          </div>
+        </div>
+      </li>
+     <% } else if(user.userType === 'host') {%>
+      <!-- ADMIN Dropdown -->
+      <li class="relative group">
+        <a href="/admin" class="hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white py-2 px-4 rounded transition duration-300 flex items-center gap-1">
+          <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2 4 5v6c0 5.2 3.4 10 8 11 4.6-1 8-5.8 8-11V5l-8-3Zm0 5v6m-3-3h6" />
+          </svg>
+          <span>Admin</span>
+        </a>
+
+        <div class="absolute left-0 top-full w-52 pt-2
+                    opacity-0 invisible translate-y-2
+                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                    group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
+                    transition-all duration-300 ease-out z-50">
+          <div class="bg-white text-gray-800 rounded-lg shadow-xl overflow-hidden py-1">
+            <a href="/admin/add-home" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+              Add Home
+            </a>
+            <a href="/admin/home-list" class="flex items-center gap-2 px-4 py-2.5 hover:bg-brand-50 hover:text-brand-700 transition">
+              <svg class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>
+              Admin Home List
+            </a>
+              
+            
+          </div>
+        </div>
+      </li>
+      <%}%>
+      <li class="absolute right-0 top-1/2 -translate-y-1/2">
+        <form action="/logout" method="POST">
+          <button
+            type="submit"
+            class="rounded-lg border border-white/70 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-white hover:text-brand-700"
+          >
+            <span class="flex items-center gap-2">
+              <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 17l5-5-5-5M15 12H3M14 3h6a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-6" />
+              </svg>
+              Log Out
+            </span>
+          </button>
+        </form>
+      </li>
+    <% } else{%>
+    
+      <li class="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-2">
+        <a
+          href="/signup"
+          class="rounded-lg border border-white bg-white px-4 py-2 font-semibold text-brand-700 shadow-sm transition duration-300 hover:bg-brand-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM19 8v6M16 11h6" />
+            </svg>
+            Sign Up
+          </span>
+        </a>
+      
+        <a
+          href="/login"
+          class="rounded-lg border border-white/70 px-4 py-2 font-semibold text-white transition duration-300 hover:bg-white hover:text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-5M10 17l5-5-5-5M15 12H3" />
+            </svg>
+            Login
+          </span>
+        </a>
+      </li>
+      <% } %>
+
+    </ul>
+  </nav>
+</header>
