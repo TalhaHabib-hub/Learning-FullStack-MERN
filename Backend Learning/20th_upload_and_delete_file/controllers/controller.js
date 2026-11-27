@@ -17,6 +17,11 @@ exports.addHome = (req, res, next) => {
 exports.addHomePost = (req, res, next) => {
   const { houseName, location, price, photo, description } = req.body;
   console.log(houseName, location, price, photo, description);
+  console.log(req.file);
+  if (!req.file) {
+    console.log('No image provided');
+    return res.status(422).send('No image is provided');
+  }
   const newHome = new homes({ houseName, location, price, photo, description });
   newHome.save().then(() => {
     console.log("home saved successfully");

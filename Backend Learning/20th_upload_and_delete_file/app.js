@@ -9,6 +9,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const mongodbStore = require("connect-mongodb-session")(session);
+const multer = require('multer');
 
 const storeRouter = require("./routes/storeRouter");
 const { adminRouter } = require("./routes/adminRouter");
@@ -29,8 +30,58 @@ const Store = mongodbStore({
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+
+const randomString = (length) => {
+  const characters = "abcdefghijklmnopqrstuvwxyz";
+  let result = "";
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+  }
+
+  return result;
+};
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, randomString(10) + "-" + file.originalname);
+  },
+});
+
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+}
+
+const multerOptions = {
+  storage,
+  fileFilter,
+}
+
+const storageMult = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null,'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  }
+});
+
+
+
+// these below are things for requst handling and file handling 
 app.use(express.urlencoded());
 app.use(express.static(path.join(rootDir, "public")));
+app.use(multer(multerOptions).single('photo'));//
 app.use(
   session({
     // Secret key used to sign the session ID cookie and encrypt session data
